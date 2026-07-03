@@ -1,0 +1,155 @@
+/* Matches category.html styles exactly */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--white);
+  color: var(--black);
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  position: relative;
+}
+
+/* ── Page Header ── */
+.pageHeader {
+  padding: 3rem 4rem 0;
+  border-bottom: 4px solid var(--lav);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+}
+
+.label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--lav);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pageHeader h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--black);
+  margin: 0 0 0.6rem;
+}
+
+.subhead {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(30, 30, 30, 0.5);
+  max-width: 52ch;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+/* ── Filter Bar ── */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.25rem;
+}
+
+.filterLabel {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(30, 30, 30, 0.35);
+  margin-right: 0.25rem;
+  white-space: nowrap;
+}
+
+.filterTag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid rgba(30, 30, 30, 0.2);
+  border-radius: 20px;
+  background: transparent;
+  color: rgba(30, 30, 30, 0.55);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  user-select: none;
+  font-family: var(--font);
+}
+
+.filterTag:hover {
+  border-color: var(--lav);
+  color: var(--lav);
+}
+
+.filterTag.active {
+  background: var(--lav);
+  border-color: var(--lav);
+  color: var(--white);
+}
+
+/* ── Product Grid ── */
+.gridWrapper {
+  flex: 1;
+  padding: 3rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.emptyState p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(30, 30, 30, 0.45);
+  margin-top: 0.75rem;
+}
+
+.emptyState strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1rem;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .pageHeader { padding: 2rem 1.5rem 0; }
+  .filterBar { gap: 0.4rem; }
+  .gridWrapper { padding: 2rem 1.5rem; }
+  .grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .page { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+}
+
+@media (max-width: 480px) {
+  .pageHeader h1 { font-size: 1.5rem; }
+}

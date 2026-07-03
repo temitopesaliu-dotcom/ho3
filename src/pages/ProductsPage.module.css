@@ -1,0 +1,204 @@
+/* Matches products.html styles exactly */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--white);
+  color: var(--black);
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  position: relative;
+}
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  height: 64px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.navLogo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--black);
+}
+
+/* ── Page Header ── */
+.pageHeader {
+  padding: 3.5rem 4rem 2.75rem;
+  border-bottom: 4px solid var(--lav);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+}
+
+.label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--lav);
+  margin-bottom: 0.85rem;
+  display: block;
+}
+
+.pageHeader h1 {
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--black);
+  margin: 0;
+}
+
+.subhead {
+  margin-top: 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(30, 30, 30, 0.5);
+  max-width: 48ch;
+  line-height: 1.7;
+}
+
+.demoNotice {
+  display: inline-flex;
+  align-items: flex-start;
+  margin-top: 1.75rem;
+  padding: 0.85rem 1.25rem;
+  border-left: 4px solid var(--lav);
+  background: rgba(149, 125, 173, 0.07);
+  color: var(--black);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  max-width: 52ch;
+  text-align: left;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ── Category Grid ── */
+.gridWrapper {
+  flex: 1;
+  padding: 3rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.catCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid rgba(30, 30, 30, 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.catCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(149, 125, 173, 0.18);
+}
+
+.catCardBody {
+  padding: 2.25rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.catCardBody h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.85rem;
+  color: var(--black);
+}
+
+.catCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lav);
+  margin-bottom: 1.75rem;
+}
+
+.catCount::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: var(--lav);
+}
+
+.catCardBody p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(30, 30, 30, 0.55);
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.catCta {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 12px;
+  width: fit-content;
+  transition: background 0.18s ease;
+}
+
+.catCard:hover .catCta {
+  background: linear-gradient(135deg, var(--black) 0%, var(--lav) 100%);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .nav { padding: 0 1.5rem; }
+  .pageHeader { padding: 2.25rem 1.5rem 2rem; }
+  .demoNotice { font-size: 0.76rem; max-width: 100%; }
+  .gridWrapper { padding: 2rem 1.5rem; }
+  .grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .catCardBody { padding: 1.75rem 1.5rem 2rem; }
+  .page { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+}
+
+@media (max-width: 480px) {
+  .pageHeader h1 { font-size: 1.55rem; }
+  .catCardBody h2 { font-size: 1.25rem; }
+}
