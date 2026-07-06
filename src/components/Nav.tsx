@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import styles from "./Nav.module.css";
 
 interface NavProps {
@@ -9,9 +9,9 @@ interface NavProps {
 export default function Nav({ backLabel, backTo }: NavProps) {
   return (
     <nav className={styles.nav}>
-      <Link to="/" className={styles.logo}>Built for You</Link>
+      <Link href="/" className={styles.logo}>Built for You</Link>
       {backTo && backLabel && (
-        <Link to={backTo} className={styles.back}>
+        <Link href={backTo} className={styles.back}>
           &larr; {backLabel}
         </Link>
       )}
