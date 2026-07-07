@@ -6,17 +6,16 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/products/page": [
+    "/the-blueprint-audit/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/products/page.css",
-      "static/chunks/app/products/page.js"
+      "static/css/app/the-blueprint-audit/layout.css",
+      "static/chunks/app/the-blueprint-audit/layout.js"
     ],
-    "/category/[slug]/page": [
+    "/the-blueprint-audit/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/category/[slug]/page.css",
-      "static/chunks/app/category/[slug]/page.js"
+      "static/chunks/app/the-blueprint-audit/page.js"
     ]
   }
 }

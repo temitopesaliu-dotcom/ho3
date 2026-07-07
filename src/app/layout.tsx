@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import FacebookPixel from "../components/FacebookPixel";
 
 export const metadata: Metadata = {
   title: "Built for You",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <FacebookPixel />
+        {children}
+      </body>
     </html>
   );
 }

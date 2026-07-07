@@ -1450,15 +1450,16 @@ function platformEmoji(platform) {
         e.preventDefault();
         var firstName = document.getElementById('gate-first-name').value;
         var lastName = document.getElementById('gate-last-name').value;
+        var email = document.getElementById('gate-email').value;
         var role = document.getElementById('gate-role').value;
 
-        if (!firstName || !lastName || !role) {
+        if (!firstName || !lastName || !email || !role) {
           document.getElementById('gate-error').style.display = 'block';
           document.getElementById('gate-error').textContent = 'All fields are required';
           return;
         }
 
-        var email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@example.com';
+        
 
         fetch('/api/demo-gate', {
           method: 'POST',
@@ -1474,7 +1475,9 @@ function platformEmoji(platform) {
   })();
   </script>
 
-  <!-- Email Gate Modal -->
+  <style>@media(max-width:480px){#email-gate-modal>div{padding:24px 16px!important;margin:8px!important;max-height:calc(100vh - 16px)!important;overflow-y:auto!important}#email-gate-form>div:first-child{flex-direction:column!important;gap:10px!important}#email-gate-form>div:first-child>input{width:100%!important;flex:1 1 100%!important}}</style>
+
+<!-- Email Gate Modal -->
   <div id="email-gate-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center">
     <div style="background:#ffffff;border:1px solid #000000;border-radius:6px;padding:32px;max-width:420px;width:90%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
       <div style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#957DAD;margin-bottom:12px">Continue Exploring</div>
@@ -1485,6 +1488,7 @@ function platformEmoji(platform) {
           <input type="text" id="gate-first-name" placeholder="First Name" required style="flex:1;padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;outline:none">
           <input type="text" id="gate-last-name" placeholder="Last Name" required style="flex:1;padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;outline:none">
         </div>
+        <input type="email" id="gate-email" placeholder="Email" required style="padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;outline:none">
         <select id="gate-role" required style="padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;background:#ffffff;outline:none">
           <option value="" disabled selected>I am a...</option>
           <option value="Professional">Professional</option>
@@ -1498,5 +1502,5 @@ function platformEmoji(platform) {
       </form>
     </div>
   </div>
-  </body>
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:9998;background:linear-gradient(135deg,#111827,#1f2937);border-top:1px solid rgba(108,99,255,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-shadow:0 -4px 20px rgba(0,0,0,0.3);"><span style="color:rgba(255,255,255,0.7);font-size:13px;letter-spacing:0.02em;">Like what you see?</span><a href="#" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.02em;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a></div></body>
   </html>
