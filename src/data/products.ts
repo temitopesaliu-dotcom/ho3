@@ -49,7 +49,7 @@ export const CATEGORIES: Category[] = [
         tag: "Marriage Coach",
         description:
           "A structured coaching platform for marriage and parenting transformation. Guided frameworks, session notes, and client progress tracking.",
-        demo: "/demos/olagbegi-full-platform.html",
+        demo: "/demos/the-marriage-coach.html",
       },
       {
         id: "coaches-03",
@@ -65,7 +65,7 @@ export const CATEGORIES: Category[] = [
         tag: "Business Coach",
         description:
           "Revenue tracking, client milestones, group cohort management, and launch pipeline — built for coaches who run programs at scale.",
-        demo: "/demos/money_bestie_os.html",
+        demo: "/demos/financial_coach.html",
       },
     ],
   },
@@ -99,7 +99,7 @@ export const CATEGORIES: Category[] = [
         tag: "Course Creator",
         description:
           "Monitor course sales, student progress, refund rates, and cohort health. Know exactly which launch strategy is working.",
-        demo: "/demos/money_bestie_os.html",
+        demo: "/demos/financial_coach.html",
       },
       {
         id: "creators-04",
@@ -107,7 +107,7 @@ export const CATEGORIES: Category[] = [
         tag: "Video Creator",
         description:
           "Plan, script, publish and analyse your video content — with a built-in ideation board and performance dashboard per channel.",
-        demo: "/demos/olagbegi-full-platform.html",
+        demo: "/demos/the-marriage-coach.html",
       },
     ],
   },
@@ -141,7 +141,7 @@ export const CATEGORIES: Category[] = [
         tag: "Financial Advisor",
         description:
           "A personal finance operating system to share with clients — budgeting, goal-setting, net worth tracking, and spending clarity.",
-        demo: "/demos/money_bestie_os.html",
+        demo: "/demos/financial_coach.html",
       },
       {
         id: "professionals-04",
@@ -149,7 +149,7 @@ export const CATEGORIES: Category[] = [
         tag: "Consultant",
         description:
           "Track your content reach, inbound leads, speaking requests, and media mentions in one dashboard — your brand, quantified.",
-        demo: "/demos/olagbegi-full-platform.html",
+        demo: "/demos/the-marriage-coach.html",
       },
     ],
   },
@@ -183,7 +183,7 @@ export const CATEGORIES: Category[] = [
         tag: "SME",
         description:
           "Company-wide budget tracking, expense management, and financial forecasting — built for small and mid-size teams.",
-        demo: "/demos/money_bestie_os.html",
+        demo: "/demos/financial_coach.html",
       },
       {
         id: "companies-04",
@@ -191,7 +191,7 @@ export const CATEGORIES: Category[] = [
         tag: "SME",
         description:
           "Structured 1:1 frameworks, goal tracking, and performance coaching tools for managers building high-performing teams.",
-        demo: "/demos/olagbegi-full-platform.html",
+        demo: "/demos/the-marriage-coach.html",
       },
     ],
   },

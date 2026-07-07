@@ -7,28 +7,28 @@ const categories = [
   {
     slug: "coaches",
     title: "For Coaches",
-    count: "Sales · Marriage · Life · Business",
+    count: "Sales · Marriage · Life · Business · and others",
     description:
       "Client management systems, session trackers, lead pipelines, and content tools — built around how coaches actually run their practice.",
   },
   {
     slug: "creators",
     title: "For Creators",
-    count: "Content · Video · Newsletter · Podcast",
+    count: "Content · Video · Newsletter · Podcast · and others ",
     description:
       "Content intelligence dashboards, audience analytics, publishing planners, and monetisation tools for creators building in public.",
   },
   {
     slug: "professionals",
     title: "For Professionals",
-    count: "Consultants · Freelancers · Advisors",
+    count: "Consultants · Freelancers · Advisors · and others",
     description:
       "Proposal generators, client reporting dashboards, invoicing trackers, and personal brand tools — for professionals who sell expertise.",
   },
   {
     slug: "companies",
     title: "For Companies",
-    count: "Startups · SMEs · Agencies · Teams",
+    count: "Startups · SMEs · Agencies · Teams · and others",
     description:
       "Lead generation systems, internal ops dashboards, team analytics, and automated outreach tools built for businesses running at scale.",
   },

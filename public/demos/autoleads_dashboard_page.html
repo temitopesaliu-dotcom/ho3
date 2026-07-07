@@ -130,5 +130,93 @@
     </p>
   </main>
 
+  <!-- Email Gate Modal -->
+  <div id="email-gate-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center">
+    <div style="background:#ffffff;border:1px solid #000000;border-radius:6px;padding:32px;max-width:420px;width:90%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+      <div style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#957DAD;margin-bottom:12px">Continue Exploring</div>
+      <h2 style="font-size:22px;font-weight:500;line-height:1.2;margin-bottom:8px;font-family:'Cormorant Garamond',Georgia,serif;color:#a78bfa;">Get full access to this demo</h2>
+      <p style="font-size:14px;color:#666666;line-height:1.6;margin-bottom:20px">Enter your details to continue exploring. We'll also send you similar tools built for your role.</p>
+      <form id="email-gate-form" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px">
+          <input type="text" id="gate-first-name" placeholder="First Name" required style="flex:1;padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;outline:none">
+          <input type="text" id="gate-last-name" placeholder="Last Name" required style="flex:1;padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;outline:none">
+        </div>
+        <select id="gate-role" required style="padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;background:#ffffff;outline:none">
+          <option value="" disabled selected>I am a...</option>
+          <option value="Professional">Professional</option>
+          <option value="Founder">Founder</option>
+          <option value="Creator">Creator</option>
+          <option value="Company">Company</option>
+          <option value="Coach">Coach</option>
+        </select>
+        <button type="submit" style="padding:12px 20px;background:#957DAD;color:#000000;border:none;border-radius:3px;font-size:13px;font-weight:500;letter-spacing:0.02em;cursor:pointer;transition:background 0.15s">Continue to Demo</button>
+        <div id="gate-error" style="color:#C05252;font-size:12px;display:none"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var clickCount = 0;
+    var gateShown = false;
+    var storageKey = 'demo_gate_shown_autoleads';
+
+    if (localStorage.getItem(storageKey)) {
+      gateShown = true;
+    }
+
+    function trackClick() {
+      if (gateShown) return;
+      clickCount++;
+      if (clickCount >= 7) {
+        showGate();
+      }
+    }
+
+    function showGate() {
+      gateShown = true;
+      localStorage.setItem(storageKey, 'true');
+      document.getElementById('email-gate-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideGate() {
+      document.getElementById('email-gate-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Track clicks on interactive elements
+    document.addEventListener('click', trackClick);
+
+    // Form submission
+    var form = document.getElementById('email-gate-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var firstName = document.getElementById('gate-first-name').value;
+        var lastName = document.getElementById('gate-last-name').value;
+        var role = document.getElementById('gate-role').value;
+
+        if (!firstName || !lastName || !role) {
+          document.getElementById('gate-error').style.display = 'block';
+          document.getElementById('gate-error').textContent = 'All fields are required';
+          return;
+        }
+
+        // Generate a placeholder email (in real scenario, you'd ask for email too)
+        var email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@example.com';
+
+        fetch('/api/demo-gate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, role: role })
+        }).then(function() {
+          hideGate();
+        }).catch(function() {
+          hideGate();
+        });
+      });
+    }
+  })();
+  </script>
 </body>
-</html>

@@ -29,8 +29,7 @@ export default function AiosLandingPage() {
           </h1>
 
           <p className="hero-subtitle fade-up delay-2">
-            Build an AI Operating System that runs your business with you—not
-            because of you. For founders, coaches, consultants and growing teams
+            Build an AI Operating System that runs your business. For founders, coaches, consultants and growing teams
             who are done being the bottleneck.
           </p>
 
@@ -61,6 +60,169 @@ export default function AiosLandingPage() {
               strokeLinejoin="round"
             />
           </svg>
+        </div>
+      </section>
+
+      {/* ============================================================
+           SOLUTION — AI OS DIAGRAM
+           ============================================================ */}
+      <section
+        className="solution section"
+        id="solution"
+        aria-labelledby="solution-heading"
+      >
+        <div className="container">
+          <div className="section-header centered fade-up">
+            <p className="label mb-3">The Architecture</p>
+            <h2 className="heading-1" id="solution-heading">
+              What an AI Operating System looks like.
+            </h2>
+            <p className="body-lg mt-3">
+              Not a collection of tools. A connected intelligence layer that
+              sits across your entire business.
+            </p>
+          </div>
+
+          <div
+            className="ai-os-diagram-wrapper fade-up delay-1"
+            aria-label="AI Operating System architecture diagram"
+            role="img"
+          >
+            <svg
+              viewBox="0 0 560 560"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <g stroke="rgba(30,30,30,0.15)" strokeWidth="1">
+                {[
+                  { x2: 280, y2: 80, delay: "0s" },
+                  { x2: 430, y2: 150, delay: "0.06s" },
+                  { x2: 490, y2: 280, delay: "0.12s" },
+                  { x2: 430, y2: 420, delay: "0.18s" },
+                  { x2: 350, y2: 490, delay: "0.24s" },
+                  { x2: 210, y2: 490, delay: "0.30s" },
+                  { x2: 130, y2: 420, delay: "0.36s" },
+                  { x2: 70, y2: 280, delay: "0.42s" },
+                  { x2: 130, y2: 150, delay: "0.48s" },
+                  { x2: 190, y2: 80, delay: "0.54s" },
+                  { x2: 370, y2: 80, delay: "0.60s" },
+                  { x2: 490, y2: 180, delay: "0.66s" },
+                ].map((l, i) => (
+                  <line
+                    key={i}
+                    className="diagram-line"
+                    x1="280"
+                    y1="280"
+                    x2={l.x2}
+                    y2={l.y2}
+                    style={{
+                      strokeDasharray: 300,
+                      strokeDashoffset: 300,
+                      opacity: 0,
+                      transition: `stroke-dashoffset 0.6s ease ${l.delay}, opacity 0.3s ease ${l.delay}`,
+                    }}
+                  />
+                ))}
+              </g>
+
+              <circle cx="280" cy="280" r="80" fill="rgba(149,125,173,0.06)" />
+              <circle cx="280" cy="280" r="60" fill="rgba(149,125,173,0.10)" />
+
+              <circle
+                cx="280"
+                cy="280"
+                r="52"
+                fill="#1E1E1E"
+                stroke="#957DAD"
+                strokeWidth="1"
+              />
+              <text
+                x="280"
+                y="274"
+                textAnchor="middle"
+                fill="#C4B0D8"
+                fontFamily="Cormorant Garamond, Georgia, serif"
+                fontSize="13"
+                fontWeight="400"
+              >
+                Your Business
+              </text>
+              <text
+                x="280"
+                y="292"
+                textAnchor="middle"
+                fill="#C4B0D8"
+                fontFamily="Cormorant Garamond, Georgia, serif"
+                fontSize="13"
+                fontWeight="400"
+              >
+                Automated
+              </text>
+
+              <circle
+                cx="280"
+                cy="280"
+                r="190"
+                stroke="rgba(30,30,30,0.12)"
+                strokeWidth="1"
+                strokeDasharray="3 6"
+              />
+
+              {[
+                { cx: 280, cy: 80, label: "CRM", sub: "Contacts" },
+                { cx: 430, cy: 150, label: "EMAIL", sub: "Outreach" },
+                { cx: 490, cy: 280, label: "LEADS", sub: "Pipeline" },
+                { cx: 430, cy: 420, label: "CLIENTS", sub: "Delivery" },
+                { cx: 350, cy: 490, label: "CONTENT", sub: "Engine" },
+                { cx: 210, cy: 490, label: "SUPPORT", sub: "AI" },
+                { cx: 130, cy: 420, label: "OPS", sub: "Internal" },
+                { cx: 70, cy: 280, label: "CAL", sub: "Scheduling" },
+                { cx: 130, cy: 150, label: "KNOW.", sub: "Base" },
+                { cx: 190, cy: 80, label: "DOCS", sub: "Templates" },
+                { cx: 370, cy: 80, label: "MEET.", sub: "Intelligence" },
+                { cx: 490, cy: 180, label: "TEAM", sub: "Workflows" },
+              ].map((node, i) => (
+                <g key={i} transform={`translate(${node.cx},${node.cy})`}>
+                  <circle
+                    r="30"
+                    fill="#1E1E1E"
+                    stroke="rgba(30,30,30,0.15)"
+                    strokeWidth="1"
+                  />
+                  <text
+                    y="-6"
+                    textAnchor="middle"
+                    fill="rgba(248,249,250,0.65)"
+                    fontFamily="Inter, sans-serif"
+                    fontSize="9"
+                    letterSpacing="0.08em"
+                  >
+                    {node.label}
+                  </text>
+                  <text
+                    y="8"
+                    textAnchor="middle"
+                    fill="rgba(248,249,250,0.4)"
+                    fontFamily="Inter, sans-serif"
+                    fontSize="8"
+                  >
+                    {node.sub}
+                  </text>
+                </g>
+              ))}
+            </svg>
+          </div>
+
+          <div
+            className="section-header centered fade-up delay-2"
+            style={{ marginTop: "var(--space-6)", marginBottom: 0 }}
+          >
+            <p className="body-md">
+              Every node is connected. Every action is tracked. Every routine
+              that can be handled without you — is.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -119,15 +281,6 @@ export default function AiosLandingPage() {
 
           <div className="problems-grid" role="list">
             {[
-              {
-                icon: (
-                  <svg className="problem-icon" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.3" />
-                    <path d="M12 7v5l3 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-                  </svg>
-                ),
-                text: '"My business stops the moment I stop."',
-              },
               {
                 icon: (
                   <svg className="problem-icon" viewBox="0 0 24 24" fill="none">
@@ -303,169 +456,6 @@ export default function AiosLandingPage() {
       </section>
 
       {/* ============================================================
-           SOLUTION — AI OS DIAGRAM
-           ============================================================ */}
-      <section
-        className="solution section"
-        id="solution"
-        aria-labelledby="solution-heading"
-      >
-        <div className="container">
-          <div className="section-header centered fade-up">
-            <p className="label mb-3">The Architecture</p>
-            <h2 className="heading-1" id="solution-heading">
-              What an AI Operating System looks like.
-            </h2>
-            <p className="body-lg mt-3">
-              Not a collection of tools. A connected intelligence layer that
-              sits across your entire business.
-            </p>
-          </div>
-
-          <div
-            className="ai-os-diagram-wrapper fade-up delay-1"
-            aria-label="AI Operating System architecture diagram"
-            role="img"
-          >
-            <svg
-              viewBox="0 0 560 560"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <g stroke="rgba(30,30,30,0.15)" strokeWidth="1">
-                {[
-                  { x2: 280, y2: 80, delay: "0s" },
-                  { x2: 430, y2: 150, delay: "0.06s" },
-                  { x2: 490, y2: 280, delay: "0.12s" },
-                  { x2: 430, y2: 420, delay: "0.18s" },
-                  { x2: 350, y2: 490, delay: "0.24s" },
-                  { x2: 210, y2: 490, delay: "0.30s" },
-                  { x2: 130, y2: 420, delay: "0.36s" },
-                  { x2: 70, y2: 280, delay: "0.42s" },
-                  { x2: 130, y2: 150, delay: "0.48s" },
-                  { x2: 190, y2: 80, delay: "0.54s" },
-                  { x2: 370, y2: 80, delay: "0.60s" },
-                  { x2: 490, y2: 180, delay: "0.66s" },
-                ].map((l, i) => (
-                  <line
-                    key={i}
-                    className="diagram-line"
-                    x1="280"
-                    y1="280"
-                    x2={l.x2}
-                    y2={l.y2}
-                    style={{
-                      strokeDasharray: 300,
-                      strokeDashoffset: 300,
-                      opacity: 0,
-                      transition: `stroke-dashoffset 0.6s ease ${l.delay}, opacity 0.3s ease ${l.delay}`,
-                    }}
-                  />
-                ))}
-              </g>
-
-              <circle cx="280" cy="280" r="80" fill="rgba(149,125,173,0.06)" />
-              <circle cx="280" cy="280" r="60" fill="rgba(149,125,173,0.10)" />
-
-              <circle
-                cx="280"
-                cy="280"
-                r="52"
-                fill="#1E1E1E"
-                stroke="#957DAD"
-                strokeWidth="1"
-              />
-              <text
-                x="280"
-                y="274"
-                textAnchor="middle"
-                fill="#C4B0D8"
-                fontFamily="Cormorant Garamond, Georgia, serif"
-                fontSize="13"
-                fontWeight="400"
-              >
-                AI Operating
-              </text>
-              <text
-                x="280"
-                y="292"
-                textAnchor="middle"
-                fill="#C4B0D8"
-                fontFamily="Cormorant Garamond, Georgia, serif"
-                fontSize="13"
-                fontWeight="400"
-              >
-                System
-              </text>
-
-              <circle
-                cx="280"
-                cy="280"
-                r="190"
-                stroke="rgba(30,30,30,0.12)"
-                strokeWidth="1"
-                strokeDasharray="3 6"
-              />
-
-              {[
-                { cx: 280, cy: 80, label: "CRM", sub: "Contacts" },
-                { cx: 430, cy: 150, label: "EMAIL", sub: "Outreach" },
-                { cx: 490, cy: 280, label: "LEADS", sub: "Pipeline" },
-                { cx: 430, cy: 420, label: "CLIENTS", sub: "Delivery" },
-                { cx: 350, cy: 490, label: "CONTENT", sub: "Engine" },
-                { cx: 210, cy: 490, label: "SUPPORT", sub: "AI" },
-                { cx: 130, cy: 420, label: "OPS", sub: "Internal" },
-                { cx: 70, cy: 280, label: "CAL", sub: "Scheduling" },
-                { cx: 130, cy: 150, label: "KNOW.", sub: "Base" },
-                { cx: 190, cy: 80, label: "DOCS", sub: "Templates" },
-                { cx: 370, cy: 80, label: "MEET.", sub: "Intelligence" },
-                { cx: 490, cy: 180, label: "TEAM", sub: "Workflows" },
-              ].map((node, i) => (
-                <g key={i} transform={`translate(${node.cx},${node.cy})`}>
-                  <circle
-                    r="30"
-                    fill="#1E1E1E"
-                    stroke="rgba(30,30,30,0.15)"
-                    strokeWidth="1"
-                  />
-                  <text
-                    y="-6"
-                    textAnchor="middle"
-                    fill="rgba(248,249,250,0.65)"
-                    fontFamily="Inter, sans-serif"
-                    fontSize="9"
-                    letterSpacing="0.08em"
-                  >
-                    {node.label}
-                  </text>
-                  <text
-                    y="8"
-                    textAnchor="middle"
-                    fill="rgba(248,249,250,0.4)"
-                    fontFamily="Inter, sans-serif"
-                    fontSize="8"
-                  >
-                    {node.sub}
-                  </text>
-                </g>
-              ))}
-            </svg>
-          </div>
-
-          <div
-            className="section-header centered fade-up delay-2"
-            style={{ marginTop: "var(--space-6)", marginBottom: 0 }}
-          >
-            <p className="body-md">
-              Every node is connected. Every action is tracked. Every routine
-              that can be handled without you — is.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
            OUTCOMES / DEMO SECTION
            ============================================================ */}
       <section
@@ -499,7 +489,7 @@ export default function AiosLandingPage() {
             <button className="outcomes-tab" data-tab="proposals" role="tab" aria-selected="false" aria-controls="panel-proposals">Proposals</button>
             <button className="outcomes-tab" data-tab="email" role="tab" aria-selected="false" aria-controls="panel-email">Email Automation</button>
             <button className="outcomes-tab" data-tab="support" role="tab" aria-selected="false" aria-controls="panel-support">Customer Support</button>
-            <button className="outcomes-tab" data-tab="ops" role="tab" aria-selected="false" aria-controls="panel-ops">Operations</button>
+            <button className="outcomes-tab" data-tab="ops" role="tab" aria-selected="false" aria-controls="panel-ops">Operations and Many more</button>
           </div>
 
           {/* Lead Capture Panel */}
@@ -693,7 +683,7 @@ export default function AiosLandingPage() {
             </h2>
             <p className="body-lg mt-3">
               A defined path. No ambiguity. No wasted time on either side.<br></br>
-              Most implementations range from $3,500-$10,000+ depending on complexity.
+              Most implementations range from $3,500-$20,000+ depending on complexity.
             </p>
           </div>
 
@@ -710,7 +700,7 @@ export default function AiosLandingPage() {
             <div className="timeline-step highlight" data-default>
               <div className="timeline-number">2</div>
               <p className="timeline-step-label">The Starting Point</p>
-              <h3 className="timeline-step-title">Blueprint Session</h3>
+              <h3 className="timeline-step-title">Blueprint Audit Session</h3>
               <p className="timeline-step-desc">
                 A focused 90-minute strategy session where we map your business,
                 identify AI opportunities, and design the architecture of your
@@ -734,7 +724,7 @@ export default function AiosLandingPage() {
             <div className="timeline-step">
               <div className="timeline-number">4</div>
               <p className="timeline-step-label">Your Decision</p>
-              <h3 className="timeline-step-title">Proposal</h3>
+              <h3 className="timeline-step-title">Audit Feedback Delivery</h3>
               <p className="timeline-step-desc">
                 If you choose to proceed with implementation, you receive a
                 scoped proposal with timeline and investment. No pressure. The
@@ -747,9 +737,9 @@ export default function AiosLandingPage() {
               <h3 className="timeline-step-title">Implementation</h3>
               <p className="timeline-step-desc">
                 We build your AI Operating System to specification. Projects
-                typically run 4–10 weeks depending on scope. You have visibility
-                throughout. Most implementations range from $3,500–$10,000+
-                depending on complexity.
+                typically run 4–10 weeks depending on demo. You have visibility
+                throughout. Most implementations range from $3,500–$20,000+
+                depending on complexity + Maintenance Fee (if you choose)
               </p>
             </div>
             <div className="timeline-step">
@@ -784,7 +774,7 @@ export default function AiosLandingPage() {
             </h2>
             <p className="body-lg mt-3">
               Not an audit. Not a consultation. A consulting engagement with one
-              purpose: clarity on exactly what your AI OS should look like and
+              purpose: clarity on exactly what your AI Operating System should look like and
               how to build it.
             </p>
           </div>
@@ -967,8 +957,8 @@ export default function AiosLandingPage() {
 
           <div className="metrics-strip fade-up delay-1">
             {[
-              { number: "8hrs", label: "Avg. weekly time recovered" },
-              { number: "72hrs", label: "Avg. onboarding time → 20 min" },
+              { number: "30hrs", label: "Avg. weekly time recovered" },
+              { number: "20mins", label: "Avg. onboarding time" },
               {
                 number: "80%",
                 label: "Of support queries resolved by AI",
@@ -1019,7 +1009,7 @@ export default function AiosLandingPage() {
                 },
                 {
                   q: "What if I decide not to proceed after the Blueprint?",
-                  a: "That is completely fine. You keep the Blueprint document, roadmap and all recommendations. Many clients use the Blueprint to guide their own implementation or hire others to execute it. The document is yours. No obligation exists beyond the $500 session.",
+                  a: "That is completely fine. You keep the Blueprint document, roadmap and all recommendations. Clients can use the Blueprint to guide their own implementation or hire others to execute it. The document is yours. No obligation exists beyond the $500 session.",
                 },
                 {
                   q: "Is the $500 credited toward the project?",
@@ -1054,10 +1044,6 @@ export default function AiosLandingPage() {
                   a: "Typically 4–10 weeks depending on scope and complexity. A focused engagement covering 3–4 core systems usually runs 4–6 weeks. A full operating system covering every business function can take 8–12 weeks. The Blueprint gives you the exact timeline for your specific project.",
                 },
                 {
-                  q: "What tools and software do you work with?",
-                  a: "We work across the major platforms: CRM tools (HubSpot, GoHighLevel, Notion), automation platforms (Make, Zapier, n8n), AI models (GPT-4, Claude, Gemini), knowledge management (Notion, Obsidian, Coda), communication (Gmail, Outlook, Slack), document management, scheduling (Calendly, Cal.com) and more. We select the right tools for your business, not our preferences.",
-                },
-                {
                   q: "Can you integrate with my existing tech stack?",
                   a: "Almost always, yes. We assess your current tools during the Blueprint and design around them wherever possible. We only recommend replacements when a tool is genuinely creating more friction than value. We do not push specific platforms.",
                 },
@@ -1067,7 +1053,7 @@ export default function AiosLandingPage() {
                 },
                 {
                   q: "How much does implementation cost?",
-                  a: "We do not publish fixed pricing because every engagement is scoped to your specific business. Most projects range from $3,500 for focused single-system builds to $10,000+ for comprehensive operating system implementations. The Blueprint includes an exact investment estimate for your project. The $500 Blueprint fee is credited in full if you proceed.",
+                  a: "We do not publish fixed pricing because every engagement is scoped to your specific business. Most projects range from $3,500 for focused single-system builds to $20,000+ for comprehensive operating system implementations. The Blueprint includes an exact investment estimate for your project. The $500 Blueprint fee is credited in full if you proceed.",
                 },
               ].map((faq, i) => (
                 <div className="faq-item" key={i}>
@@ -1100,10 +1086,6 @@ export default function AiosLandingPage() {
                 {
                   q: "Do I need technical knowledge?",
                   a: "No. You need to understand your business — the flows, the bottlenecks, the decisions you make every day. We handle all technical design and implementation. Most of our clients describe themselves as \"not technical.\" What matters is operational clarity, not coding skills.",
-                },
-                {
-                  q: "What size business is ideal?",
-                  a: "Solo operators to teams of 25. The sweet spot is a founder-led business with 1–10 team members where the founder is still the primary operational bottleneck. Large enterprises have their own internal teams for this work. The businesses that transform most from an AI OS are those generating real revenue but still too dependent on the founder's personal involvement.",
                 },
               ].map((faq, i) => (
                 <div className="faq-item" key={i}>

@@ -74,15 +74,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../src/app/the-blueprint-audit/apply/confirmation/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/the-blueprint-audit/apply/confirmation">> = Specific
-  const handler = {} as typeof import("../../src/app/the-blueprint-audit/apply/confirmation/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../src/app/the-blueprint-audit/apply/not-a-fit/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/the-blueprint-audit/apply/not-a-fit">> = Specific
@@ -114,6 +105,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/the-blueprint-audit">> = Specific
   const handler = {} as typeof import("../../src/app/the-blueprint-audit/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/demo-gate/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/demo-gate">> = Specific
+  const handler = {} as typeof import("../../src/app/api/demo-gate/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

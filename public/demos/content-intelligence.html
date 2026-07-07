@@ -225,9 +225,6 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
       <div class="nav-item" onclick="showPage('growth')">
         <span class="nav-icon">📈</span> Growth Engine
       </div>
-      <div class="nav-item" onclick="showPage('settings')">
-        <span class="nav-icon">⚙️</span> Connections
-      </div>
     </nav>
     <div class="sidebar-footer">
       <button class="sync-btn" onclick="syncAll()">⟳ Sync All Platforms</button>
@@ -572,66 +569,6 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
       </div>
     </div>
 
-    <!-- SETTINGS / CONNECTIONS -->
-    <div id="page-settings" class="page" style="display:none">
-      <div class="page-header">
-        <div>
-          <div class="page-title">Platform Connections</div>
-          <div class="page-sub">Add API keys to pull live data</div>
-        </div>
-        <div class="header-actions">
-          <button class="btn-sm btn-primary" onclick="saveAllKeys()">Save All</button>
-        </div>
-      </div>
-      <div class="page-content">
-        <div class="alert alert-info">🔐 Keys stored locally in your browser. Never sent to any server except the platform's own API.</div>
-        <!-- CLAUDE API KEY (required for AI insights) -->
-        <div class="section">
-          <div class="section-header"><div class="section-title">🤖 AI Engine (Required for Insights)</div></div>
-          <div class="card">
-            <div class="platform-header">
-              <span class="platform-icon">⚡</span>
-              <div>
-                <div class="platform-name">Claude API (Anthropic)</div>
-                <div class="platform-status" id="claude-status">Not connected</div>
-              </div>
-            </div>
-            <label class="input-label">API Key</label>
-            <input type="password" class="input-field" id="key-claude" placeholder="sk-ant-api03-..." oninput="checkKey('claude')">
-            <div style="font-size:11px;color:var(--text3);margin-top:6px">Get from <a href="https://console.anthropic.com" target="_blank" style="color:var(--accent2)">console.anthropic.com</a> — powers all AI insights, ad copy, comment analysis</div>
-            <button class="connect-btn" onclick="testClaudeKey()" id="claude-btn">Test Connection</button>
-          </div>
-        </div>
-        <!-- PLATFORM KEYS -->
-        <div class="section">
-          <div class="section-header"><div class="section-title">📱 Social Platforms</div></div>
-          <div class="grid-2" id="platform-keys-grid"></div>
-        </div>
-        <!-- CORS NOTE -->
-        <div class="section">
-          <div class="card">
-            <div class="card-title">⚠️ Running on Localhost?</div>
-            <div class="insight-text">
-              Most social APIs block direct browser requests (CORS). To use live data, run a simple proxy:<br><br>
-              <code style="background:var(--bg3);padding:8px;display:block;border-radius:6px;font-size:11px;margin:8px 0">npx cors-anywhere</code>
-              Then set your proxy URL below. Leave blank to use mock data.
-            </div>
-            <input type="text" class="input-field" id="cors-proxy" placeholder="http://localhost:8080" style="margin-top:10px" oninput="saveSetting('corsProxy', this.value)">
-          </div>
-        </div>
-        <!-- MOCK DATA MODE -->
-        <div class="section">
-          <div class="card">
-            <div class="card-title">🎭 Mock Data Mode</div>
-            <div class="insight-text" style="margin-bottom:12px">Use realistic mock data to explore the platform before connecting real APIs.</div>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
-              <input type="checkbox" id="mock-mode" onchange="toggleMockMode(this.checked)" style="width:16px;height:16px;accent-color:var(--accent)">
-              <span style="font-size:13px">Enable mock data</span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -1465,13 +1402,101 @@ function platformEmoji(platform) {
   return map[platform] || '📱';
 }
 
-function showToast(msg) {
-  const t = document.createElement('div');
-  t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--card2);border:1px solid var(--border2);color:var(--text);padding:10px 16px;border-radius:8px;font-size:13px;z-index:9999;animation:fadeIn 0.2s ease;box-shadow:0 4px 20px rgba(0,0,0,0.5)';
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => t.remove(), 3000);
-}
-</script>
-</body>
-</html>
+  function showToast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--card2);border:1px solid var(--border2);color:var(--text);padding:10px 16px;border-radius:8px;font-size:13px;z-index:9999;animation:fadeIn 0.2s ease;box-shadow:0 4px 20px rgba(0,0,0,0.5)';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+  }
+
+  // Email Gate
+  (function() {
+    var clickCount = 0;
+    var gateShown = false;
+    var storageKey = 'demo_gate_shown_content_intelligence';
+
+    if (localStorage.getItem(storageKey)) {
+      gateShown = true;
+    }
+
+    function trackClick() {
+      if (gateShown) return;
+      clickCount++;
+      if (clickCount >= 7) {
+        showGate();
+      }
+    }
+
+    function showGate() {
+      gateShown = true;
+      localStorage.setItem(storageKey, 'true');
+      var modal = document.getElementById('email-gate-modal');
+      if (modal) modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideGate() {
+      var modal = document.getElementById('email-gate-modal');
+      if (modal) modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', trackClick);
+
+    var form = document.getElementById('email-gate-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var firstName = document.getElementById('gate-first-name').value;
+        var lastName = document.getElementById('gate-last-name').value;
+        var role = document.getElementById('gate-role').value;
+
+        if (!firstName || !lastName || !role) {
+          document.getElementById('gate-error').style.display = 'block';
+          document.getElementById('gate-error').textContent = 'All fields are required';
+          return;
+        }
+
+        var email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@example.com';
+
+        fetch('/api/demo-gate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, role: role })
+        }).then(function() {
+          hideGate();
+        }).catch(function() {
+          hideGate();
+        });
+      });
+    }
+  })();
+  </script>
+
+  <!-- Email Gate Modal -->
+  <div id="email-gate-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center">
+    <div style="background:#ffffff;border:1px solid #000000;border-radius:6px;padding:32px;max-width:420px;width:90%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+      <div style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#957DAD;margin-bottom:12px">Continue Exploring</div>
+      <h2 style="font-size:22px;font-weight:500;line-height:1.2;margin-bottom:8px;font-family:'Cormorant Garamond',Georgia,serif; color:#a78bfa;">Get full access to this demo</h2>
+      <p style="font-size:14px;color:#666666;line-height:1.6;margin-bottom:20px">Enter your details to continue exploring. We'll also send you similar tools built for your role.</p>
+      <form id="email-gate-form" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px">
+          <input type="text" id="gate-first-name" placeholder="First Name" required style="flex:1;padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;outline:none">
+          <input type="text" id="gate-last-name" placeholder="Last Name" required style="flex:1;padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;outline:none">
+        </div>
+        <select id="gate-role" required style="padding:10px 12px;border:1px solid #000000;border-radius:3px;font-size:14px;background:#ffffff;outline:none">
+          <option value="" disabled selected>I am a...</option>
+          <option value="Professional">Professional</option>
+          <option value="Founder">Founder</option>
+          <option value="Creator">Creator</option>
+          <option value="Company">Company</option>
+          <option value="Coach">Coach</option>
+        </select>
+        <button type="submit" style="padding:12px 20px;background:#957DAD;color:#000000;border:none;border-radius:3px;font-size:13px;font-weight:500;letter-spacing:0.02em;cursor:pointer;transition:background 0.15s">Continue to Demo</button>
+        <div id="gate-error" style="color:#C05252;font-size:12px;display:none"></div>
+      </form>
+    </div>
+  </div>
+  </body>
+  </html>
