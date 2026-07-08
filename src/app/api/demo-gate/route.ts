@@ -14,10 +14,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Add subscriber to MailerLite demo gate group (non-blocking)
-    addDemoGateSubscriber(email, firstName, lastName, role).catch((err) =>
-      console.error("[demo-gate] MailerLite add failed:", err instanceof Error ? err.message : err)
-    );
+    // Await the MailerLite call so it completes before the serverless function terminates
+    await addDemoGateSubscriber(email, firstName, lastName, role);
 
     return NextResponse.json({ ok: true });
   } catch {

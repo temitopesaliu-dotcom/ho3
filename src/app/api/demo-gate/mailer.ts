@@ -34,14 +34,14 @@ export async function addDemoGateSubscriber(
   firstName: string,
   lastName: string,
   role: string
-): Promise<void> {
+): Promise<{ ok: boolean; status: number; errorText?: string }> {
   const apiKey = process.env.MAILERLITE_API_KEY;
   const demoGateGroup = process.env.MAILERLITE_DEMO_GATE_GROUP;
   if (!apiKey || !demoGateGroup) {
     console.warn(
       "[mailer] MAILERLITE_API_KEY or MAILERLITE_DEMO_GATE_GROUP not set — skipping demo gate group add"
     );
-    return;
+    return { ok: false, status: 0, errorText: "MAILERLITE_API_KEY or MAILERLITE_DEMO_GATE_GROUP not set" };
   }
 
   const groups: string[] = [];
@@ -66,4 +66,5 @@ export async function addDemoGateSubscriber(
   if (!result.ok) {
     console.error("[mailer] Demo Gate MailerLite add failed:", result.status, result.errorText);
   }
+  return { ok: result.ok, status: result.status, errorText: result.errorText };
 }
