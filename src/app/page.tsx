@@ -41,7 +41,6 @@ export default function HomePage() {
       {/* Footer */}
       <footer className={styles.footer}>
         <span className={styles.footerCopy}>© 2026 Built for You. All rights reserved.</span>
-        <span className={styles.footerTag}>Digital Products</span>
       </footer>
     </div>
   );

@@ -203,8 +203,7 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
   <!-- SIDEBAR -->
   <div id="sidebar">
     <div class="brand">
-      <div class="brand-name">⚡ HUMAN EDGE</div>
-      <div class="brand-sub">Content Intelligence Platform</div>
+      <div class="brand-name">Content Intelligence System</div>
     </div>
     <nav class="nav">
       <div class="nav-item active" onclick="showPage('dashboard')">
@@ -307,6 +306,12 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
             </div>
           </div>
         </div>
+        <!-- CTA BLOCK -->
+        <div style="background:linear-gradient(135deg,#111827,#1f2937);border-radius:12px;padding:28px 32px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:22px;border:1px solid var(--border2);">
+          <span style="color:rgba(255,255,255,.7);font-size:13px;">Want a content intelligence system like this?</span>
+          <a href="/the-blueprint-audit/apply" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a>
+        </div>
+
         <!-- PLATFORM HEALTH -->
         <div class="section">
           <div class="section-header"><div class="section-title">Platform Health</div></div>
@@ -455,6 +460,13 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
             </div>
           </div>
         </div>
+        <!-- CTA BLOCK -->
+        <div style="background:linear-gradient(135deg,#111827,#1f2937);border-radius:12px;padding:28px 32px;text-align:center;margin-bottom:22px;border:1px solid var(--border2);">
+          <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;">Ready to monetize your content?</div>
+          <div style="font-size:13px;color:var(--text3);margin-bottom:16px;">We build content intelligence systems like this — starting from $500.</div>
+          <a href="/the-blueprint-audit/apply" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a>
+        </div>
+
         <!-- PRODUCT SIGNALS -->
         <div class="section">
           <div class="section-header"><div class="section-title">📦 Product-Market Fit Signals</div></div>
@@ -1414,11 +1426,8 @@ function platformEmoji(platform) {
   (function() {
     var clickCount = 0;
     var gateShown = false;
-    var storageKey = 'demo_gate_shown_content_intelligence';
-
-    if (localStorage.getItem(storageKey)) {
-      gateShown = true;
-    }
+    var submittedKey = 'demo_gate_shown';
+    var triggeredKey = 'demo_gate_triggered';
 
     function trackClick() {
       if (gateShown) return;
@@ -1430,7 +1439,7 @@ function platformEmoji(platform) {
 
     function showGate() {
       gateShown = true;
-      localStorage.setItem(storageKey, 'true');
+      localStorage.setItem(triggeredKey, 'true');
       var modal = document.getElementById('email-gate-modal');
       if (modal) modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
@@ -1442,36 +1451,45 @@ function platformEmoji(platform) {
       document.body.style.overflow = '';
     }
 
-    document.addEventListener('click', trackClick);
+    // Initialize on DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem(submittedKey)) {
+        gateShown = true;
+      } else if (localStorage.getItem(triggeredKey)) {
+        showGate();
+      }
 
-    var form = document.getElementById('email-gate-form');
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var firstName = document.getElementById('gate-first-name').value;
-        var lastName = document.getElementById('gate-last-name').value;
-        var email = document.getElementById('gate-email').value;
-        var role = document.getElementById('gate-role').value;
+      // Form submission
+      var form = document.getElementById('email-gate-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var firstName = document.getElementById('gate-first-name').value;
+          var lastName = document.getElementById('gate-last-name').value;
+          var email = document.getElementById('gate-email').value;
+          var role = document.getElementById('gate-role').value;
 
-        if (!firstName || !lastName || !email || !role) {
-          document.getElementById('gate-error').style.display = 'block';
-          document.getElementById('gate-error').textContent = 'All fields are required';
-          return;
-        }
+          if (!firstName || !lastName || !email || !role) {
+            document.getElementById('gate-error').style.display = 'block';
+            document.getElementById('gate-error').textContent = 'All fields are required';
+            return;
+          }
 
-        
-
-        fetch('/api/demo-gate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, role: role })
-        }).then(function() {
-          hideGate();
-        }).catch(function() {
-          hideGate();
+          fetch('/api/demo-gate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, role: role })
+          }).then(function() {
+            localStorage.setItem(submittedKey, 'true');
+            hideGate();
+          }).catch(function() {
+            hideGate();
+          });
         });
-      });
-    }
+      }
+    });
+
+    document.addEventListener('click', trackClick);
   })();
   </script>
 

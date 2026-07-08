@@ -893,7 +893,6 @@ export default function AiosLandingPage() {
                   marginTop: "var(--space-3)",
                 }}
               >
-                Applications reviewed within 48 hours.
                 <br />
                 Not all applications are accepted.
               </p>
@@ -923,17 +922,17 @@ export default function AiosLandingPage() {
               {
                 text: "Before this, I was answering the same 12 client questions every week. Now the AI handles all of them. I get notified only when something genuinely needs me. I got back 8 hours a week from day one.",
                 name: "Sarah M.",
-                role: "Executive Coach, 1:1 Practice",
+                role: "United States",
               },
               {
                 text: "My onboarding used to take me 3 hours per new client. Scheduling, contracts, emails, intake, kickoff. Now it's fully automated. I join the kickoff call and everything is already done. Game-changing for a solo consultant.",
                 name: "James O.",
-                role: "Strategy Consultant",
+                role: "Nigeria",
               },
               {
                 text: "The Blueprint alone was worth the $500. I got clarity on what to build and in what order. We'd been spinning our wheels with tools for 18 months. In 90 minutes we had a clear architecture. That decision alone saved us months.",
                 name: "Priya K.",
-                role: "Founder, 12-person agency",
+                role: "Founder, 12-person agency <br></br> United Kingdom",
               },
             ].map((t, i) => (
               <div
@@ -964,8 +963,8 @@ export default function AiosLandingPage() {
                 label: "Of support queries resolved by AI",
               },
               {
-                number: "4–10wk",
-                label: "Typical implementation timeline",
+                number: "10x",
+                label: "Revenue",
               },
             ].map((m, i) => (
               <div className="metric-item" key={i}>

@@ -124,24 +124,27 @@ ul { list-style: none; }
   line-height: 1.2;
 }
 .body-lg {
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 1.8;
   color: var(--text-2);
+  font-weight: 500;
 }
 .body-md {
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.75;
   color: var(--text-2);
+  font-weight: 500;
 }
 .body-sm {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.7;
   color: var(--text-2);
+  font-weight: 500;
 }
 .label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -478,12 +481,13 @@ ul { list-style: none; }
   color: var(--accent);
 }
 .hero-subtitle {
-  font-size: clamp(16px, 1.5vw, 19px);
-  line-height: 1.6;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.7;
   color: var(--text-2);
   max-width: 540px;
   margin-bottom: var(--space-5);
   font-style: normal;
+  font-weight: 500;
 }
 .hero-ctas {
   display: flex;
@@ -534,10 +538,11 @@ ul { list-style: none; }
   line-height: 1;
 }
 .credibility-stat-label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-3);
   letter-spacing: 0.08em;
   margin-top: 4px;
+  font-weight: 500;
 }
 .credibility-divider {
   width: 1px;
@@ -578,9 +583,10 @@ ul { list-style: none; }
 }
 .problem-card:hover .problem-icon { color: var(--accent); }
 .problem-card-text {
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--text-2);
+  font-weight: 500;
   transition: color var(--t);
 }
 
@@ -635,9 +641,9 @@ ul { list-style: none; }
   border-color: rgba(149,125,173,0.2);
 }
 .comparison-side-label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: var(--space-3);
 }
@@ -648,9 +654,10 @@ ul { list-style: none; }
   align-items: flex-start;
   gap: 10px;
   margin-bottom: var(--space-2);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-2);
-  line-height: 1.5;
+  line-height: 1.6;
+  font-weight: 500;
 }
 .comparison-item-icon { flex-shrink: 0; margin-top: 2px; width: 16px; height: 16px; }
 .comparison-side.old .comparison-item-icon { color: var(--text-3); }
@@ -714,7 +721,7 @@ ul { list-style: none; }
   min-height: 220px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 .outcome-visual-row {
   display: flex;
@@ -723,8 +730,9 @@ ul { list-style: none; }
   padding: 10px 12px;
   background: var(--bg-3);
   border-radius: var(--radius);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-2);
+  font-weight: 500;
   border: 1px solid var(--border-subtle);
 }
 .outcome-visual-row-dot {
@@ -788,8 +796,8 @@ ul { list-style: none; }
   color: var(--accent);
 }
 .timeline-step-label {
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-3);
@@ -805,9 +813,10 @@ ul { list-style: none; }
   line-height: 1.2;
 }
 .timeline-step-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-2);
-  line-height: 1.6;
+  line-height: 1.65;
+  font-weight: 500;
 }
 .timeline-step-badge {
   display: inline-block;
@@ -849,9 +858,10 @@ ul { list-style: none; }
   margin-bottom: var(--space-2);
 }
 .blueprint-why-text {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-2);
-  line-height: 1.6;
+  line-height: 1.65;
+  font-weight: 500;
 }
 .deliverables-list {
   display: grid;
@@ -863,9 +873,10 @@ ul { list-style: none; }
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-2);
-  line-height: 1.4;
+  line-height: 1.5;
+  font-weight: 500;
 }
 .deliverable-item svg {
   width: 14px;
@@ -950,10 +961,11 @@ ul { list-style: none; }
   font-weight: 400;
 }
 .testimonial-text {
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--text-2);
   font-style: italic;
+  font-weight: 500;
   margin-bottom: var(--space-3);
 }
 .testimonial-author {
@@ -970,7 +982,7 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 .testimonial-name { font-size: 13px; font-weight: 500; color: var(--text); }
-.testimonial-role { font-size: 12px; color: var(--text-3); }
+.testimonial-role { font-size: 13px; color: var(--text-3); font-weight: 500; }
 
 .metrics-strip {
   display: flex;
@@ -992,10 +1004,11 @@ ul { list-style: none; }
   line-height: 1;
 }
 .metric-label {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-3);
   letter-spacing: 0.08em;
   margin-top: 6px;
+  font-weight: 500;
 }
 
 /* ============================================================
@@ -1008,7 +1021,7 @@ ul { list-style: none; }
 }
 .faq-group { margin-bottom: var(--space-5); }
 .faq-group-label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1053,9 +1066,10 @@ ul { list-style: none; }
 .faq-item.open .faq-answer { max-height: 500px; }
 .faq-answer-inner {
   padding-bottom: var(--space-3);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.75;
   color: var(--text-2);
+  font-weight: 500;
 }
 
 /* ============================================================
@@ -1080,9 +1094,10 @@ ul { list-style: none; }
 }
 .final-cta-inner { position: relative; z-index: 1; }
 .final-cta-note {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-3);
   margin-top: var(--space-3);
+  font-weight: 500;
 }
 
 /* ============================================================
@@ -1105,12 +1120,13 @@ ul { list-style: none; }
   gap: var(--space-4);
 }
 .footer-link {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-3);
   transition: color var(--t-fast);
+  font-weight: 500;
 }
 .footer-link:hover { color: var(--text-2); }
-.footer-copy { font-size: 12px; color: var(--text-3); }
+.footer-copy { font-size: 13px; color: var(--text-3); font-weight: 500; }
 
 /* ============================================================
    19. CARD COMPONENT
@@ -1156,8 +1172,9 @@ ul { list-style: none; }
 .form-progress-label {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-3);
+  font-weight: 500;
 }
 .form-step { display: none; }
 .form-step.active { display: block; }
@@ -1170,9 +1187,10 @@ ul { list-style: none; }
   line-height: 1.2;
 }
 .form-step-subtitle {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-2);
   margin-bottom: var(--space-5);
+  font-weight: 500;
 }
 .form-group {
   margin-bottom: var(--space-4);
@@ -1187,9 +1205,10 @@ ul { list-style: none; }
   text-transform: none;
 }
 .form-hint {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-3);
   margin-bottom: 8px;
+  font-weight: 500;
 }
 .form-input,
 .form-select,
@@ -1342,7 +1361,7 @@ ul { list-style: none; }
   margin-bottom: var(--space-3);
 }
 .portal-nav-section-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1376,7 +1395,7 @@ ul { list-style: none; }
   padding-bottom: var(--space-4);
   border-bottom: 1px solid var(--border);
 }
-.portal-welcome { font-size: 12px; color: var(--text-3); margin-bottom: 4px; }
+.portal-welcome { font-size: 13px; color: var(--text-3); margin-bottom: 4px; font-weight: 500; }
 .portal-title {
   font-family: var(--font-display);
   font-size: 36px;
@@ -1385,7 +1404,7 @@ ul { list-style: none; }
 }
 .portal-section { margin-bottom: var(--space-6); }
 .portal-section-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--text);
   margin-bottom: var(--space-3);
@@ -1428,8 +1447,8 @@ ul { list-style: none; }
 .checklist-checkbox svg { width: 11px; height: 11px; color: var(--black); display: none; }
 .checklist-item.done .checklist-checkbox svg { display: block; }
 .checklist-item-content { flex: 1; }
-.checklist-item-text { font-size: 14px; color: var(--text); line-height: 1.4; }
-.checklist-item-hint { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.checklist-item-text { font-size: 15px; color: var(--text); line-height: 1.5; font-weight: 500; }
+.checklist-item-hint { font-size: 13px; color: var(--text-3); margin-top: 2px; font-weight: 500; }
 
 .upload-zone {
   border: 1px dashed var(--border);
@@ -1465,7 +1484,7 @@ ul { list-style: none; }
 .status-pending  { background: var(--text-3); }
 .status-progress { background: var(--accent); }
 .status-done     { background: #5aaf6e; }
-.deliverable-track-name { font-size: 13px; color: var(--text-2); }
+.deliverable-track-name { font-size: 14px; color: var(--text-2); font-weight: 500; }
 
 /* ============================================================
    22. ANIMATIONS
@@ -1583,7 +1602,7 @@ ul { list-style: none; }
   .blueprint-pricing-card { position: static; padding: var(--space-4); }
   .blueprint-pricing-card .price-amount { font-size: clamp(48px, 12vw, 64px); }
   .blueprint-pricing-card .price-currency { font-size: clamp(20px, 5vw, 28px); }
-  .blueprint-pricing-card .label { font-size: 10px; }
+  .blueprint-pricing-card .label { font-size: 12px; }
 
   /* Testimonials */
   .testimonials-grid { grid-template-columns: 1fr; }
@@ -1616,9 +1635,10 @@ ul { list-style: none; }
   padding-bottom: var(--space-9);
 }
 .hero-note {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-3);
   margin-top: var(--space-3);
+  font-weight: 500;
 }
 
 /* Two-column generic layout */
@@ -1665,9 +1685,10 @@ ul { list-style: none; }
   font-family: var(--font-body);
 }
 .deliverable-feature-desc {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-2);
-  line-height: 1.65;
+  line-height: 1.7;
+  font-weight: 500;
 }
 
 /* Who grid */
@@ -1725,9 +1746,10 @@ ul { list-style: none; }
   font-family: var(--font-body);
 }
 .session-block-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-2);
-  line-height: 1.65;
+  line-height: 1.7;
+  font-weight: 500;
 }
 @media (max-width: 560px) {
   .session-block { grid-template-columns: 1fr; }
@@ -1824,9 +1846,10 @@ ul { list-style: none; }
   font-family: var(--font-body);
 }
 .confirmation-step-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-2);
-  line-height: 1.65;
+  line-height: 1.7;
+  font-weight: 500;
 }
 .confirmation-box {
   background: var(--bg-2);
@@ -1855,7 +1878,7 @@ ul { list-style: none; }
   margin-bottom: 4px;
   font-family: var(--font-body);
 }
-.confirmation-box-text { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+.confirmation-box-text { font-size: 14px; color: var(--text-2); line-height: 1.7; font-weight: 500; }
 .confirmation-actions {
   display: flex;
   gap: var(--space-3);
@@ -1886,7 +1909,7 @@ ul { list-style: none; }
   margin-bottom: var(--space-2);
   font-family: var(--font-body);
 }
-.not-fit-option-desc { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+.not-fit-option-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; font-weight: 500; }
 
 /* Form page extended (apply.html) */
 .form-page {
@@ -1935,8 +1958,14 @@ ul { list-style: none; }
 
 .form-field { display: flex; flex-direction: column; gap: var(--space-1); }
 .form-label { font-size: 13px; font-weight: 500; color: var(--text); font-family: var(--font-body); }
-.form-required { color: var(--accent); }
-.form-hint { font-size: 12px; color: var(--text-3); margin-top: -4px; margin-bottom: var(--space-1); line-height: 1.4; }
+.form-required { color: var(--accent); }.form-hint {
+  font-size: 13px;
+  color: var(--text-3);
+  margin-top: -4px;
+  margin-bottom: var(--space-1);
+  line-height: 1.5;
+  font-weight: 500;
+}
 .form-input, .form-select, .form-textarea {
   background: var(--bg-1);
   border: 1px solid var(--border);
@@ -2027,8 +2056,9 @@ ul { list-style: none; }
   gap: 12px;
   padding: 10px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-2);
+  font-weight: 500;
 }
 .outcome-visual-row:last-child { border-bottom: none; }
 .outcome-visual-row-dot {

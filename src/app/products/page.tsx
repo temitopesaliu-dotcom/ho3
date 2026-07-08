@@ -47,7 +47,7 @@ export default function ProductsPage() {
       {/* Page Header */}
       <header className={styles.pageHeader}>
         <span className={styles.label}>Our Digital Products</span>
-        <h1>Who Are You Building For?</h1>
+        <h1>Explore our demo products</h1>
         <p className={styles.subhead}>Pick your category — explore tools built specifically for how you work.</p>
         <span className={styles.demoNotice}>
           These are example builds. Every product you see is a demo — built to show you what&apos;s possible.

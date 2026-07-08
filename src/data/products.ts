@@ -45,7 +45,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "coaches-02",
-        title: "The Olagbegi Method",
+        title: "The Marriage Coach Method",
         tag: "Marriage Coach",
         description:
           "A structured coaching platform for marriage and parenting transformation. Guided frameworks, session notes, and client progress tracking.",
@@ -79,7 +79,7 @@ export const CATEGORIES: Category[] = [
     products: [
       {
         id: "creators-01",
-        title: "Content Intelligence Platform",
+        title: "Content Intelligence System",
         tag: "Content Creator",
         description:
           "Audit your content performance across platforms, identify gaps, and build a data-driven publishing calendar — all in one place.",
@@ -100,14 +100,6 @@ export const CATEGORIES: Category[] = [
         description:
           "Monitor course sales, student progress, refund rates, and cohort health. Know exactly which launch strategy is working.",
         demo: "/demos/financial_coach.html",
-      },
-      {
-        id: "creators-04",
-        title: "Video Content Planner",
-        tag: "Video Creator",
-        description:
-          "Plan, script, publish and analyse your video content — with a built-in ideation board and performance dashboard per channel.",
-        demo: "/demos/the-marriage-coach.html",
       },
     ],
   },

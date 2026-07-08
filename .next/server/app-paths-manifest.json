@@ -1,12 +1,1 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/demo-gate/route": "app/api/demo-gate/route.js",
-  "/api/the-blueprint-audit/submit/route": "app/api/the-blueprint-audit/submit/route.js",
-  "/category/[slug]/page": "app/category/[slug]/page.js",
-  "/page": "app/page.js",
-  "/products/page": "app/products/page.js",
-  "/the-blueprint-audit/page": "app/the-blueprint-audit/page.js",
-  "/the-blueprint-audit/blueprint/page": "app/the-blueprint-audit/blueprint/page.js",
-  "/the-blueprint-audit/apply/page": "app/the-blueprint-audit/apply/page.js",
-  "/the-blueprint-audit/apply/not-a-fit/page": "app/the-blueprint-audit/apply/not-a-fit/page.js"
-}
+{}
