@@ -142,7 +142,7 @@ export default function ApplyPage() {
         body: JSON.stringify(data),
       });
       if (res.ok) {
-        router.push("/the-blueprint-audit/apply/confirmation");
+        router.push("/checkout");
       } else {
         setErrors({ submit: "Submission failed. Please try again." });
         setSubmitting(false);

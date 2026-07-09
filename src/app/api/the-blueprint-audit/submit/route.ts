@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
     }
 
     const payload = {
+      timestamp: new Date().toISOString(),
       firstName: data.firstName || "",
       lastName: data.lastName || "",
       email: data.email || "",
