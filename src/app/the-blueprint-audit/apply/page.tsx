@@ -155,7 +155,7 @@ export default function ApplyPage() {
         body: JSON.stringify(data),
       });
       if (res.ok) {
-        router.push("/checkout");
+        window.open('https://buy.stripe.com/7sYfZgah48Nh3Nb74N6J204', '_blank')
       } else {
         setErrors({ submit: "Submission failed. Please try again." });
         setSubmitting(false);

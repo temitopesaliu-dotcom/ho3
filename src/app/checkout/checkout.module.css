@@ -1,0 +1,525 @@
+/* ============================================================
+   CHECKOUT PAGE — "Get This For Your Business"
+   Scoped styles converted from standalone HTML
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+
+/* Scoped design tokens (won't leak to other pages) */
+.page {
+  --cbg: #fbfaff;
+  --cbg-alt: #f3f0fb;
+  --cwhite: #ffffff;
+  --clavender: #8b7fd8;
+  --clavender-dark: #6a5acd;
+  --clavender-deep: #4b3f96;
+  --cink: #211c34;
+  --cink-soft: #524b6b;
+  --cborder: #e4dff5;
+  --cshadow: 0 10px 40px rgba(107, 91, 208, 0.12);
+  --cradius: 18px;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--cbg);
+  color: var(--cink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Layout ── */
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section {
+  padding: 96px 0;
+}
+
+/* ── CTA Button ── */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--clavender-dark), var(--clavender-deep));
+  color: var(--cwhite);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 17px 34px;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: var(--cshadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.ctaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 46px rgba(107, 91, 208, 0.22);
+}
+.ctaBtnSmall {
+  padding: 13px 26px;
+  font-size: 14px;
+}
+
+/* ── Headings ── */
+.sectionHead {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 56px;
+}
+.sectionHead h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.sectionHead p {
+  color: var(--cink-soft);
+  font-size: 16px;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 90px 0 70px;
+  text-align: center;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clavender-dark);
+  background: var(--cbg-alt);
+  padding: 7px 16px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.12;
+  max-width: 780px;
+  margin: 0 auto 22px;
+  letter-spacing: -0.01em;
+  color: var(--cink);
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--clavender-dark);
+}
+.heroSub {
+  font-size: 19px;
+  color: var(--cink-soft);
+  max-width: 560px;
+  margin: 0 auto 36px;
+}
+.heroNote {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--cink-soft);
+}
+
+/* ── How It Works ── */
+.how {
+  background: var(--cwhite);
+  border-top: 1px solid var(--cborder);
+  border-bottom: 1px solid var(--cborder);
+  padding: 96px 0;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.step {
+  background: var(--cbg);
+  border: 1px solid var(--cborder);
+  border-radius: var(--cradius);
+  padding: 28px 22px;
+  position: relative;
+}
+.stepNum {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--clavender-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+.step h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.step p {
+  font-size: 14.5px;
+  color: var(--cink-soft);
+  line-height: 1.6;
+}
+.stepHighlight {
+  background: linear-gradient(160deg, #efe9fc, #f7f4fd);
+  border-color: var(--clavender);
+}
+
+/* ── Transformation / Before-After ── */
+.transformGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.tCard {
+  border-radius: var(--cradius);
+  padding: 32px;
+}
+.tCardBefore {
+  background: var(--cwhite);
+  border: 1px solid var(--cborder);
+}
+.tCardAfter {
+  background: linear-gradient(160deg, var(--clavender-dark), var(--clavender-deep));
+  color: white;
+}
+.tCard h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+.tCard ul {
+  list-style: none;
+}
+.tCard li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 15px;
+}
+.tCardAfter li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.tCard li:last-child {
+  border-bottom: none;
+}
+.tCardBefore li::before {
+  content: "✕ ";
+  color: #c4536b;
+  font-weight: 700;
+}
+.tCardAfter li::before {
+  content: "✓ ";
+  font-weight: 700;
+}
+
+/* ── Proof / Stats ── */
+.proof {
+  background: var(--cwhite);
+  border-top: 1px solid var(--cborder);
+  border-bottom: 1px solid var(--cborder);
+  padding: 96px 0;
+}
+.proofGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.stat {
+  background: var(--cbg);
+  border: 1px solid var(--cborder);
+  border-radius: var(--cradius);
+  padding: 30px 24px;
+  text-align: center;
+}
+.statNum {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 38px;
+  color: var(--clavender-deep);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+.statLabel {
+  font-size: 14.5px;
+  color: var(--cink-soft);
+}
+.dollarCallout {
+  background: linear-gradient(135deg, var(--clavender-dark), var(--clavender-deep));
+  color: white;
+  border-radius: var(--cradius);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.dollarBig {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 44px;
+  font-weight: 600;
+}
+.dollarCallout p {
+  font-size: 15.5px;
+  opacity: 0.92;
+  max-width: 480px;
+  margin: 0;
+  line-height: 1.6;
+}
+.dollarCallout small {
+  display: block;
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 12.5px;
+}
+
+/* ── Engagement / Pricing ── */
+.engagementGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+.engagementCopy h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.engagementCopy p {
+  color: var(--cink-soft);
+  font-size: 16.5px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.creditBox {
+  background: var(--cbg-alt);
+  border: 1px solid var(--cborder);
+  border-radius: var(--cradius);
+  padding: 22px 24px;
+  font-size: 15px;
+  color: var(--cink);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+.creditBox strong {
+  color: var(--clavender-deep);
+}
+.priceCard {
+  background: var(--cwhite);
+  border: 1px solid var(--cborder);
+  border-radius: var(--cradius);
+  padding: 32px;
+  box-shadow: var(--cshadow);
+}
+.priceAmount {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 46px;
+  color: var(--clavender-deep);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.priceSub {
+  font-size: 13.5px;
+  color: var(--cink-soft);
+  margin-bottom: 22px;
+}
+.priceList {
+  list-style: none;
+  margin-bottom: 24px;
+}
+.priceList li {
+  padding: 9px 0;
+  font-size: 14.5px;
+  border-bottom: 1px solid var(--cborder);
+}
+.priceList li:last-child {
+  border-bottom: none;
+}
+.priceList li::before {
+  content: "— ";
+  color: var(--clavender);
+}
+
+/* ── Investment ── */
+.investBox {
+  background: var(--cwhite);
+  border: 1px solid var(--cborder);
+  border-radius: var(--cradius);
+  padding: 40px;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.investBox h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.investRange {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+.investRangeItem {
+  text-align: center;
+}
+.investValue {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 30px;
+  color: var(--clavender-deep);
+  font-weight: 600;
+}
+.investLabel {
+  font-size: 13px;
+  color: var(--cink-soft);
+  margin-top: 4px;
+}
+.investNote {
+  font-size: 14.5px;
+  color: var(--cink-soft);
+}
+.maintLine {
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--cink-soft);
+  margin-top: 20px;
+}
+.maintLine strong {
+  color: var(--cink);
+}
+
+/* ── Scarcity Bar ── */
+.scarcityBar {
+  background: var(--cink);
+  color: white;
+  text-align: center;
+  padding: 16px 24px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.scarcityBar span {
+  color: #d8cffa;
+  font-weight: 700;
+}
+
+/* ── Final CTA ── */
+.final {
+  text-align: center;
+  background: linear-gradient(160deg, var(--cbg-alt), var(--cbg));
+  border-top: 1px solid var(--cborder);
+}
+.final h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+.final p {
+  color: var(--cink-soft);
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 13px;
+  color: var(--cink-soft);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 860px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .transformGrid {
+    grid-template-columns: 1fr;
+  }
+  .proofGrid {
+    grid-template-columns: 1fr;
+  }
+  .engagementGrid {
+    grid-template-columns: 1fr;
+  }
+  .investRange {
+    gap: 24px;
+  }
+  .section,
+  .how,
+  .proof {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero h1 {
+    font-size: 30px;
+  }
+  .heroSub {
+    font-size: 16px;
+  }
+  .sectionHead h2 {
+    font-size: 28px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .dollarCallout {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 24px;
+  }
+  .dollarBig {
+    font-size: 36px;
+  }
+  .engagementCopy h2 {
+    font-size: 26px;
+  }
+  .priceCard {
+    padding: 24px;
+  }
+  .priceAmount {
+    font-size: 38px;
+  }
+  .investBox {
+    padding: 28px 20px;
+  }
+  .investRange {
+    gap: 16px;
+  }
+  .final h2 {
+    font-size: 28px;
+  }
+  .wrap {
+    padding: 0 16px;
+  }
+  .section,
+  .how,
+  .proof {
+    padding: 48px 0;
+  }
+}

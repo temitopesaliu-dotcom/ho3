@@ -1,336 +1,250 @@
 import Nav from "../../components/Nav";
+import s from "./checkout.module.css";
+
+const STRIPE = "https://buy.stripe.com/7sY9AS4WKfbFbfDfBj6J205";
 
 export default function CheckoutPage() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
+    <div className={s.page}>
       <Nav />
 
-      <section
-        style={{
-          flex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "var(--space-4) var(--space-4)",
-          position: "relative",
-          overflow: "hidden",
-          minHeight: 0,
-        }}
-      >
-        {/* Subtle background gradient */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(149,125,173,0.06) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-
-        {/* Checkout card */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            width: "100%",
-            maxWidth: 480,
-            background: "var(--bg-1)",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius-xl)",
-            padding: "var(--space-6) var(--space-5)",
-            textAlign: "center",
-          }}
-        >
-          {/* Label */}
-          <p
-            style={{
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--accent)",
-              marginBottom: "var(--space-3)",
-            }}
-          >
-Consultation Deposit
-          </p>
-
-          {/* Price */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              justifyContent: "center",
-              gap: 4,
-              marginBottom: "var(--space-2)",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: 28,
-                fontWeight: 400,
-                color: "var(--text-2)",
-                lineHeight: 1,
-                marginTop: 8,
-              }}
-            >
-              $
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(64px, 14vw, 88px)",
-                fontWeight: 400,
-                lineHeight: 1,
-                color: "var(--text)",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              500
-            </span>
-          </div>
-
-          <p
-            style={{
-              fontSize: 15,
-              color: "var(--text-2)",
-              lineHeight: 1.5,
-              fontWeight: 500,
-              maxWidth: 360,
-              margin: "0 auto var(--space-3)",
-            }}
-          >
-            Your $500 deposit to get started. We&apos;ll consult with you
-            and build a system like the demo you just saw — tailored to your
-            business.
-          </p>
-
-          {/* Divider */}
-          <hr
-            style={{
-              border: "none",
-              borderTop: "1px solid var(--border)",
-              marginBottom: "var(--space-3)",
-            }}
-          />
-
-          {/* What happens next — compact */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "var(--space-2)",
-              marginBottom: "var(--space-3)",
-              textAlign: "left",
-            }}
-          >
-            {[
-              {
-                num: "1",
-                title: "Pay the deposit",
-                desc: "Secure payment via Stripe.",
-              },
-              {
-                num: "2",
-                title: "Book a consultation",
-                desc: "Pick a date & time on Calendly.",
-              },
-              {
-                num: "3",
-                title: "We consult & build",
-                desc: "We design and build your system.",
-              },
-              {
-                num: "4",
-                title: "Your system is delivered",
-                desc: "A working tool, built for your business.",
-              },
-            ].map((step, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "var(--space-3)",
-                }}
-              >
-                <div
-                  style={{
-                    width: 24,
-                    height: 24,
-                    borderRadius: "50%",
-                    fontSize: 12,
-                    background: "var(--accent-dim)",
-                    border: "1px solid var(--accent)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 500,
-                    color: "var(--accent)",
-                    flexShrink: 0,
-                  }}
-                >
-                  {step.num}
-                </div>
-                <div>
-                  <span
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: "var(--text)",
-                    }}
-                  >
-                    {step.title}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 13,
-                      color: "var(--text-3)",
-                      fontWeight: 500,
-                      marginLeft: 6,
-                    }}
-                  >
-                    — {step.desc}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <hr
-            style={{
-              border: "none",
-              borderTop: "1px solid var(--border)",
-              marginBottom: "var(--space-3)",
-            }}
-          />
-
-          {/* Credit callout */}
-          <div
-            style={{
-              background: "var(--accent-dim)",
-              border: "1px solid rgba(149,125,173,0.2)",
-              borderRadius: "var(--radius-lg)",
-              padding: "var(--space-2)",
-              marginBottom: "var(--space-3)",
-              display: "flex",
-              alignItems: "center",
-              gap: "var(--space-2)",
-              textAlign: "left",
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                width: 20,
-                height: 20,
-                color: "var(--accent)",
-                flexShrink: 0,
-              }}
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="1.3"
-              />
-              <path
-                d="M8 12l3 3 5-5"
-                stroke="currentColor"
-                strokeWidth="1.3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span
-              style={{
-              fontSize: 13,
-              fontWeight: 600,
-              color: "var(--text)",
-              lineHeight: 1.4,
-              }}
-            >
-              Your $500 is credited toward your project if you proceed within 30
-              days.
-            </span>
-          </div>
-
-          {/* CTA */}
-          <a
-            href="#stripe-checkout"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "var(--accent)",
-              color: "var(--black)",
-              fontFamily: "var(--font-body)",
-              fontSize: 15,
-              fontWeight: 600,
-              padding: "14px 32px",
-              borderRadius: "var(--radius)",
-              border: "1px solid var(--accent)",
-              textDecoration: "none",
-              cursor: "pointer",
-              transition: "all 0.15s ease",
-              width: "100%",
-              justifyContent: "center",
-              letterSpacing: "0.01em",
-            }}
-          >
-            Pay $500 to Get Started
-            <span style={{ fontSize: 16 }}>→</span>
-          </a>
-
-          <p
-            style={{
-              fontSize: 12,
-              color: "var(--text-3)",
-              marginTop: "var(--space-2)",
-              fontWeight: 500,
-            }}
-          >
-            Secure payment via Stripe · You&apos;ll book on Calendly right
-            after
-          </p>
+      {/* ── Hero ── */}
+      <section className={`${s.hero} ${s.wrap}`}>
+        <span className={s.eyebrow}>What Comes Next</span>
+        <h1>
+          You Just Saw What&apos;s Possible.{" "}
+          <em>Here&apos;s What It Looks Like For Your Business.</em>
+        </h1>
+        <p className={s.heroSub}>
+          That was a demo. Yours gets built around how your business actually
+          runs — not a template, not a one-size-fits-all tool.
+        </p>
+        <a href={STRIPE} className={s.ctaBtn} target="_blank" rel="noopener noreferrer">
+          Get This For Your Business →
+        </a>
+        <div className={s.heroNote}>
+          $500 audit call · credited in full toward your build
         </div>
       </section>
 
-      <footer
-        style={{
-          borderTop: "1px solid var(--border)",
-          padding: "0.9rem 4rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          background: "var(--white)",
-          flexShrink: 0,
-        }}
-      >
-        <span
-          style={{
-            fontSize: "0.65rem",
-            fontWeight: 300,
-            letterSpacing: "0.08em",
-            color: "rgba(30,30,30,0.4)",
-          }}
-        >
-          © 2026 Built for You. All rights reserved.
-        </span>
+      {/* ── How It Works ── */}
+      <section className={s.how}>
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <h2>How it works</h2>
+            <p>Four steps. No guesswork, no long onboarding.</p>
+          </div>
+          <div className={s.steps}>
+            <div className={s.step}>
+              <div className={s.stepNum}>1</div>
+              <h3>Pay the audit fee</h3>
+              <p>
+                $500 locks your session and gets your business properly looked at
+                — not a sales call in disguise.
+              </p>
+            </div>
+            <div className={s.step}>
+              <div className={s.stepNum}>2</div>
+              <h3>Get on the call</h3>
+              <p>
+                Bring your pain points. No prep deck needed — just what&apos;s
+                actually broken day to day.
+              </p>
+            </div>
+            <div className={s.step}>
+              <div className={s.stepNum}>3</div>
+              <h3>Leave with a working system</h3>
+              <p>
+                Built around your business, mapped to your exact workflow — not a
+                generic tool.
+              </p>
+            </div>
+            <div className={`${s.step} ${s.stepHighlight}`}>
+              <div className={s.stepNum}>4</div>
+              <h3>Grow revenue, not just save hours</h3>
+              <p>
+                A system that frees your time to focus on what actually grows the
+                business.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── The Shift ── */}
+      <section className={s.section}>
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <h2>The shift</h2>
+            <p>Not features. What actually changes.</p>
+          </div>
+          <div className={s.transformGrid}>
+            <div className={`${s.tCard} ${s.tCardBefore}`}>
+              <h3>Right now</h3>
+              <ul>
+                <li>You&apos;re the bottleneck — everything runs through you</li>
+                <li>Everything you know lives in your head</li>
+                <li>Your tools don&apos;t talk to each other</li>
+                <li>Every task needs your attention</li>
+                <li>More growth just means more chaos</li>
+              </ul>
+            </div>
+            <div className={`${s.tCard} ${s.tCardAfter}`}>
+              <h3>After</h3>
+              <ul>
+                <li>A connected system handles the repeat stuff</li>
+                <li>Your knowledge is documented and accessible</li>
+                <li>Your tools work off one source of truth</li>
+                <li>Routine decisions get handled without you</li>
+                <li>Growth doesn&apos;t cost you more hours</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Proof / Stats ── */}
+      <section className={s.proof}>
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <h2>What clients actually get back</h2>
+            <p>Real numbers, not projections.</p>
+          </div>
+          <div className={s.proofGrid}>
+            <div className={s.stat}>
+              <span className={s.statNum}>8 hrs</span>
+              <span className={s.statLabel}>
+                Average weekly time recovered
+              </span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.statNum}>72h → 20m</span>
+              <span className={s.statLabel}>
+                Client onboarding time, before vs. after
+              </span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.statNum}>80%</span>
+              <span className={s.statLabel}>
+                Of support queries resolved without a human
+              </span>
+            </div>
+          </div>
+          <div className={s.dollarCallout}>
+            <div className={s.dollarBig}>$4,800/mo</div>
+            <div>
+              <p>
+                8 hours a week back, valued at $150/hr — that&apos;s what your
+                time is worth freed up from busywork instead of spent
+                babysitting your business.
+              </p>
+              <small>
+                Illustrative at $150/hr — adjust to your own rate. Not a
+                client-reported revenue figure.
+              </small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Engagement / Pricing ── */}
+      <section className={s.section}>
+        <div className={`${s.wrap} ${s.engagementGrid}`}>
+          <div className={s.engagementCopy}>
+            <h2>
+              This isn&apos;t a sales call. It&apos;s a paid audit of your
+              business.
+            </h2>
+            <p>
+              $500 gets your business properly audited — we map exactly where AI
+              fits, and you get a written plan either way. Not a pitch. A
+              deliverable you keep.
+            </p>
+            <div className={s.creditBox}>
+              <strong>Credited in full.</strong> If you move forward with
+              implementation within 30 days, the full $500 comes off your build
+              cost. Effectively free, if you proceed.
+            </div>
+          </div>
+          <div className={s.priceCard}>
+            <div className={s.priceAmount}>$500</div>
+            <div className={s.priceSub}>One-time · credited toward your build</div>
+            <ul className={s.priceList}>
+              <li>Full business audit</li>
+              <li>Written plan, yours to keep</li>
+              <li>Exact investment estimate for your build</li>
+              <li>Credited 100% if you proceed within 30 days</li>
+            </ul>
+            <a
+              href={STRIPE}
+              className={s.ctaBtn}
+              style={{ width: "100%", justifyContent: "center" }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get This For Your Business
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Investment ── */}
+      <section className={s.section}>
+        <div className={s.wrap}>
+          <div className={s.investBox}>
+            <h2>What it costs to build</h2>
+            <p className={s.investNote}>
+              No fixed price — every build is scoped to your business.
+            </p>
+            <div className={s.investRange}>
+              <div className={s.investRangeItem}>
+                <div className={s.investValue}>$3,500</div>
+                <div className={s.investLabel}>Single-system build</div>
+              </div>
+              <div className={s.investRangeItem}>
+                <div className={s.investValue}>$10,000+</div>
+                <div className={s.investLabel}>Full operating system</div>
+              </div>
+            </div>
+            <p className={s.investNote}>
+              Your audit gives you the exact number before you commit to
+              anything.
+            </p>
+            <div className={s.maintLine}>
+              <strong>Monthly maintenance:</strong> optional, not required —
+              available if you want ongoing tweaks and improvements.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Scarcity Bar ── */}
+      <div className={s.scarcityBar}>
+        Only <span>4 audit calls</span> open this month — booked on a
+        first-come basis.
+      </div>
+
+      {/* ── Final CTA ── */}
+      <section className={`${s.final} ${s.section}`}>
+        <div className={s.wrap}>
+          <h2>
+            Your business, mapped. Your next 90 days, clear.
+          </h2>
+          <p>$500 · credited in full if you proceed</p>
+          <a
+            href={STRIPE}
+            className={s.ctaBtn}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get This For Your Business →
+          </a>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className={s.footer}>
+        © 2026 yourhumanedge with AI. All rights reserved.
       </footer>
     </div>
   );

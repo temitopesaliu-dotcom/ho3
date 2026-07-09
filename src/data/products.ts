@@ -178,7 +178,7 @@ export const CATEGORIES: Category[] = [
         demo: "/demos/financial_coach.html",
       },
       {
-        id: "coaches-01",
+        id: "companies-04",
         title: "Employee Coaching Platform",
         tag: "SME",
         description:
