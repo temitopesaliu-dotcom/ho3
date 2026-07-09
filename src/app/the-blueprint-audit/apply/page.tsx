@@ -86,10 +86,23 @@ export default function ApplyPage() {
       if (!v) newErrors[field] = `${label} is required.`;
     };
 
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const reqEmail = (field: string, label: string) => {
+      const v =
+        typeof data[field as keyof FormData] === "string"
+          ? (data[field as keyof FormData] as string).trim()
+          : "";
+      if (!v) {
+        newErrors[field] = `${label} is required.`;
+      } else if (!EMAIL_RE.test(v)) {
+        newErrors[field] = `Enter a valid email address.`;
+      }
+    };
+
     if (step === 1) {
       req("firstName", "First name");
       req("lastName", "Last name");
-      req("email", "Email");
+      reqEmail("email", "Email");
       req("businessName", "Business name");
     } else if (step === 2) {
       req("businessType", "Business type");
@@ -530,7 +543,7 @@ export default function ApplyPage() {
                   </label>
                   <p className="form-hint">
                     Implementation projects typically range from
-                    $2,500–$10,000+. This is not a commitment.
+                    $3,500–$20,000+. This is not a commitment.
                   </p>
                   <select
                     className="form-select"
@@ -547,7 +560,8 @@ export default function ApplyPage() {
                     <option value="1000-2500">$1,000–$2,500</option>
                     <option value="2500-5000">$3,500–$5,000</option>
                     <option value="5000-10000">$5,000–$10,000</option>
-                    <option value="10000-plus">$10,000+</option>
+                    <option value="10000-plus">$10,000 - $20,000</option>
+                    <option value="10000-plus">$20,000+</option>
                     <option value="not-sure">
                       Not sure yet — the Blueprint will help me decide
                     </option>

@@ -21,7 +21,15 @@ function FacebookPixelInner() {
   useEffect(() => {
     if (!PIXEL_ID) return;
     const url = pathname + (searchParams?.toString() ? `?${searchParams}` : '');
-    window.fbq('track', 'PageView', { url });
+    const fire = () => {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'PageView', { url });
+      } else {
+        setTimeout(fire, 100);
+      }
+    };
+    const timeoutId = setTimeout(fire, 0);
+    return () => clearTimeout(timeoutId);
   }, [pathname, searchParams]);
 
   // If no Pixel ID, don't render the script
@@ -41,7 +49,6 @@ function FacebookPixelInner() {
               s.parentNode.insertBefore(t,s)
             }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${PIXEL_ID}');
-            fbq('track', 'PageView');
           `,
         }}
       />

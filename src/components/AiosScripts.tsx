@@ -12,12 +12,23 @@ export default function AiosScripts() {
     const mobileMenu = document.querySelector(".nav-mobile-menu");
 
     if (nav) {
+      let ticking = false;
+      let rafId: number | undefined;
       const onScroll = () => {
-        nav.classList.toggle("scrolled", window.scrollY > 20);
+        if (!ticking) {
+          rafId = requestAnimationFrame(() => {
+            nav.classList.toggle("scrolled", window.scrollY > 20);
+            ticking = false;
+          });
+          ticking = true;
+        }
       };
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
-      cleanups.push(() => window.removeEventListener("scroll", onScroll));
+      cleanups.push(() => {
+        window.removeEventListener("scroll", onScroll);
+        if (rafId !== undefined) cancelAnimationFrame(rafId);
+      });
     }
 
     if (hamburger && mobileMenu) {

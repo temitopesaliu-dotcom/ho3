@@ -447,7 +447,7 @@ export default function AiosLandingPage() {
                     <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2"/>
                     <path d="M5 8l2 2 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span dangerouslySetInnerHTML={{ __html: text }} />
+                  <span>{text}</span>
                 </div>
               ))}
             </div>
@@ -688,7 +688,7 @@ export default function AiosLandingPage() {
           </div>
 
           <div className="timeline fade-up delay-1">
-            <div className="timeline-step" data-default>
+            <div className="timeline-step">
               <div className="timeline-number">1</div>
               <p className="timeline-step-label">First Step</p>
               <h3 className="timeline-step-title">Application</h3>

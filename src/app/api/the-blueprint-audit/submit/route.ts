@@ -5,6 +5,15 @@ export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
 
+    const email = typeof data?.email === "string" ? data.email.trim() : "";
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !EMAIL_RE.test(email)) {
+      return NextResponse.json(
+        { error: "A valid email address is required." },
+        { status: 400 }
+      );
+    }
+
     const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
     if (!webhookUrl) {
       return NextResponse.json(
@@ -64,7 +73,8 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("[submit] Unhandled error:", err instanceof Error ? err.message : err);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

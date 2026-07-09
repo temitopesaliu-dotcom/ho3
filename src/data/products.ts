@@ -178,7 +178,7 @@ export const CATEGORIES: Category[] = [
         demo: "/demos/financial_coach.html",
       },
       {
-        id: "companies-04",
+        id: "coaches-01",
         title: "Employee Coaching Platform",
         tag: "SME",
         description:
@@ -191,3 +191,12 @@ export const CATEGORIES: Category[] = [
 
 export const getCategoryBySlug = (slug: string): Category | undefined =>
   CATEGORIES.find((c) => c.slug === slug);
+
+// ── Build-time uniqueness guard ──────────────────────────────────────────────
+const _allIds = CATEGORIES.flatMap((c) => c.products.map((p) => p.id));
+const _dupes = _allIds.filter((id, i) => _allIds.indexOf(id) !== i);
+if (_dupes.length > 0) {
+  throw new Error(
+    `Duplicate product id(s) found in products.ts: ${[...new Set(_dupes)].join(", ")}. Each product id must be globally unique.`,
+  );
+}
