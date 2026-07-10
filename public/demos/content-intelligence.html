@@ -31,7 +31,7 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
 /* LAYOUT */
 #app { display: flex; height: 100vh; overflow: hidden; }
 #sidebar { width: 220px; background: var(--bg2); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
-#main { flex: 1; overflow-y: auto; }
+#main { flex: 1; overflow-y: auto; padding-bottom: 70px; }
 /* SIDEBAR */
 .brand { padding: 20px 18px 16px; border-bottom: 1px solid var(--border); }
 .brand-name { font-size: 13px; font-weight: 700; color: var(--accent2); letter-spacing: 0.5px; }
@@ -184,9 +184,143 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border2); }
-/* RESPONSIVE */
-@media (max-width: 900px) { .grid-4 { grid-template-columns: repeat(2,1fr); } .grid-3 { grid-template-columns: repeat(2,1fr); } .grid-2-1 { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { #sidebar { display: none; } .grid-4,.grid-3,.grid-2 { grid-template-columns: 1fr; } }
+/* HAMBURGER MENU */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; z-index: 1001; }
+.hamburger span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; transition: all 0.3s; border-radius: 1px; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.sidebar-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 999; }
+.sidebar-overlay.active { display: block; }
+/* RESPONSIVE — TABLET */
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2-1 { grid-template-columns: 1fr; }
+  .page-header { padding: 18px 20px 14px; }
+  .page-content { padding: 18px 20px; }
+  .tab-nav { padding: 0 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .cta-block { padding: 22px 24px; }
+}
+/* RESPONSIVE — MOBILE */
+@media (max-width: 600px) {
+  /* Sidebar becomes off-canvas overlay */
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    display: flex;
+    box-shadow: none;
+  }
+  #sidebar.open {
+    left: 0;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+  }
+  /* Show hamburger */
+  .hamburger { display: block; }
+  /* Page header stacks */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px 12px;
+  }
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .header-actions .btn-sm, .header-actions select {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+  /* Tab nav scrolls horizontally */
+  .tab-nav {
+    padding: 0 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab { padding: 8px 10px; font-size: 11px; }
+  /* Content */
+  .page-content { padding: 14px 16px; }
+  /* Grids collapse */
+  .grid-4, .grid-3, .grid-2, .grid-2-1 { grid-template-columns: 1fr; }
+  /* Stat cards */
+  .stat-value { font-size: 20px; }
+  .stat-card { padding: 12px; }
+  /* Content items stack */
+  .ci-top { flex-direction: column; gap: 8px; }
+  .ci-thumb { width: 100%; height: 44px; border-radius: 6px; }
+  .ci-info { min-width: 0; }
+  .ci-caption { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .ci-metrics { flex-wrap: wrap; gap: 10px; }
+  .metric-item { min-width: 60px; }
+  .metric-val { font-size: 14px; }
+  /* Score on content cards */
+  .perf-score { font-size: 20px; }
+  /* Charts */
+  .chart-wrap { height: 160px; }
+  /* Cards */
+  .card { padding: 14px; }
+  /* Section */
+  .section { margin-bottom: 16px; }
+  .section-title { font-size: 12px; }
+  /* Platform health grid */
+  #platform-health.grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  /* Money signal items */
+  .money-signal { flex-direction: column; gap: 6px; }
+  /* Ad strategy */
+  .ad-score-bar { flex-wrap: wrap; }
+  .ad-score-label { width: auto; }
+  /* Readiness breakdown rows */
+  .readiness-row { flex-wrap: wrap; }
+  /* Back bar */
+  #back-bar { padding: 0.5rem 1rem; }
+  #back-bar a { font-size: 0.55rem; }
+  #back-bar .bar-title { font-size: 0.55rem; display: none; }
+  /* Bottom CTA bar */
+  .bottom-cta { padding: 12px 14px !important; gap: 8px !important; }
+  .bottom-cta span { font-size: 11px !important; }
+  .bottom-cta a { font-size: 11px !important; padding: 8px 16px !important; }
+  /* Ensure content doesn't hide behind fixed footer on mobile */
+  #main { padding-bottom: 90px !important; }
+  /* Comment items */
+  .comment-header { flex-wrap: wrap; gap: 4px; }
+  /* CTA blocks */
+  .cta-block { padding: 18px 16px !important; text-align: center; }
+  .cta-block a { width: 100%; justify-content: center; }
+  /* Alert */
+  .alert { font-size: 11px; padding: 8px 10px; }
+  /* Modal */
+  #email-gate-modal > div { padding: 20px 14px !important; margin: 8px !important; }
+  #email-gate-form > div:first-child { flex-direction: column !important; gap: 8px !important; }
+  #email-gate-form > div:first-child > input { width: 100% !important; }
+  /* Sync button */
+  .sync-btn { font-size: 11px; padding: 7px; }
+  /* Nav items */
+  .nav-item { padding: 10px 16px; font-size: 12px; }
+  /* Growth page cards */
+  .grid-2 > .card { padding: 12px; }
+  /* Platform card */
+  .platform-card { padding: 12px; }
+  /* Input fields */
+  .input-field { font-size: 13px; padding: 10px; }
+  /* Section header */
+  .section-header { flex-wrap: wrap; gap: 6px; }
+  .section-action { font-size: 10px; }
+  /* Boost candidate captions */
+  .ad-candidate { padding: 12px; }
+  /* Funnel map items */
+  #funnel-map > div { flex-direction: column; gap: 4px; }
+  #funnel-map > div > div:first-child { align-self: flex-start; }
+}
 #back-bar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#ffffff;border-bottom:1px solid #000;display:flex;align-items:center;justify-content:space-between;padding:0.55rem 2rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
 #back-bar a{font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;color:#000;opacity:0.55;transition:opacity 0.15s;}
 #back-bar a:hover{opacity:1;}
@@ -198,8 +332,10 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
   <a href="products.html">&larr; All Products</a>
   <span class="bar-title">Content Intelligence Platform</span>
   <a href="index.html">Built for You</a>
-</div>
-<div id="app" style="padding-top:36px;">
+</div>  <!-- SIDEBAR OVERLAY (mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+  <div id="app" style="padding-top:36px;">
   <!-- SIDEBAR -->
   <div id="sidebar">
     <div class="brand">
@@ -236,9 +372,14 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
     <!-- DASHBOARD -->
     <div id="page-dashboard" class="page">
       <div class="page-header">
-        <div>
-          <div class="page-title">Command Center</div>
-          <div class="page-sub">All platforms · Last 30 days</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="hamburger" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="page-title">Command Center</div>
+            <div class="page-sub">All platforms · Last 30 days</div>
+          </div>
         </div>
         <div class="header-actions">
           <select class="btn-sm" id="date-range" onchange="refreshDashboard()">
@@ -307,8 +448,8 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
           </div>
         </div>
         <!-- CTA BLOCK -->
-        <div style="background:linear-gradient(135deg,#111827,#1f2937);border-radius:12px;padding:28px 32px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:22px;border:1px solid var(--border2);">
-          <span style="color:rgba(255,255,255,.7);font-size:13px;">Want a content intelligence system like this?</span>
+        <div class="cta-block" style="background:linear-gradient(135deg,#111827,#1f2937);border-radius:12px;padding:28px 32px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:22px;border:1px solid var(--border2);">
+          <span style="color:rgba(255,255,255,.7);font-size:13px;white-space:nowrap">Want a content intelligence system like this?</span>
           <a href="/checkout" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a>
         </div>
 
@@ -323,9 +464,14 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
     <!-- CONTENT LAB -->
     <div id="page-content" class="page" style="display:none">
       <div class="page-header">
-        <div>
-          <div class="page-title">Content Lab</div>
-          <div class="page-sub">All content across platforms</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="page-title">Content Lab</div>
+            <div class="page-sub">All content across platforms</div>
+          </div>
         </div>
         <div class="header-actions">
           <select class="btn-sm" id="filter-platform" onchange="filterContent()">
@@ -363,9 +509,14 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
     <!-- COMMENT INTELLIGENCE -->
     <div id="page-comments" class="page" style="display:none">
       <div class="page-header">
-        <div>
-          <div class="page-title">Comment Intelligence</div>
-          <div class="page-sub">Sentiment · Themes · Signals</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="page-title">Comment Intelligence</div>
+            <div class="page-sub">Sentiment · Themes · Signals</div>
+          </div>
         </div>
         <div class="header-actions">
           <button class="btn-sm btn-primary" onclick="analyzeComments()">⚡ Analyze All</button>
@@ -428,9 +579,14 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
     <!-- MONETIZATION -->
     <div id="page-monetization" class="page" style="display:none">
       <div class="page-header">
-        <div>
-          <div class="page-title">Monetization Intelligence</div>
-          <div class="page-sub">Revenue signals · Product-market fit · Opportunity map</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="page-title">Monetization Intelligence</div>
+            <div class="page-sub">Revenue signals · Product-market fit · Opportunity map</div>
+          </div>
         </div>
       </div>
       <div class="page-content">
@@ -461,7 +617,7 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
           </div>
         </div>
         <!-- CTA BLOCK -->
-        <div style="background:linear-gradient(135deg,#111827,#1f2937);border-radius:12px;padding:28px 32px;text-align:center;margin-bottom:22px;border:1px solid var(--border2);">
+        <div class="cta-block" style="background:linear-gradient(135deg,#111827,#1f2937);border-radius:12px;padding:28px 32px;text-align:center;margin-bottom:22px;border:1px solid var(--border2);">
           <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;">Ready to monetize your content?</div>
           <div style="font-size:13px;color:var(--text3);margin-bottom:16px;">We build content intelligence systems like this — starting from $500.</div>
           <a href="/checkout" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a>
@@ -478,9 +634,14 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
     <!-- AD STRATEGY -->
     <div id="page-ads" class="page" style="display:none">
       <div class="page-header">
-        <div>
-          <div class="page-title">Ad Strategy Engine</div>
-          <div class="page-sub">Turn your best organic into paid fuel</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="page-title">Ad Strategy Engine</div>
+            <div class="page-sub">Turn your best organic into paid fuel</div>
+          </div>
         </div>
         <div class="header-actions">
           <button class="btn-sm btn-primary" onclick="generateAdStrategy()">⚡ Generate Strategy</button>
@@ -546,9 +707,14 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
     <!-- GROWTH ENGINE -->
     <div id="page-growth" class="page" style="display:none">
       <div class="page-header">
-        <div>
-          <div class="page-title">Growth Engine</div>
-          <div class="page-sub">Follower trends · Best times · Content pillars</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="page-title">Growth Engine</div>
+            <div class="page-sub">Follower trends · Best times · Content pillars</div>
+          </div>
         </div>
       </div>
       <div class="page-content">
@@ -667,6 +833,7 @@ function showPage(id) {
   if (page) page.style.display = 'block';
   const nav = document.querySelector(`.nav-item[onclick="showPage('${id}')"]`);
   if (nav) nav.classList.add('active');
+  closeSidebar();
   // Load page data
   if (id === 'dashboard') loadDashboard();
   if (id === 'content') loadContentFeed();
@@ -1414,9 +1581,28 @@ function platformEmoji(platform) {
   return map[platform] || '📱';
 }
 
-  function showToast(msg) {
+  function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const hamburger = document.getElementById('hamburger-btn');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('active');
+  hamburger.classList.toggle('open');
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const hamburger = document.getElementById('hamburger-btn');
+  sidebar.classList.remove('open');
+  overlay.classList.remove('active');
+  hamburger.classList.remove('open');
+}
+
+function showToast(msg) {
     const t = document.createElement('div');
-    t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--card2);border:1px solid var(--border2);color:var(--text);padding:10px 16px;border-radius:8px;font-size:13px;z-index:9999;animation:fadeIn 0.2s ease;box-shadow:0 4px 20px rgba(0,0,0,0.5)';
+    const isMobile = window.innerWidth <= 600;
+    t.style.cssText = `position:fixed;bottom:${isMobile ? '70px' : '24px'};right:${isMobile ? '16px' : '24px'};left:${isMobile ? '16px' : 'auto'};background:var(--card2);border:1px solid var(--border2);color:var(--text);padding:10px 16px;border-radius:8px;font-size:13px;z-index:9999;animation:fadeIn 0.2s ease;box-shadow:0 4px 20px rgba(0,0,0,0.5);text-align:center`;
     t.textContent = msg;
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3000);
@@ -1520,5 +1706,5 @@ function platformEmoji(platform) {
       </form>
     </div>
   </div>
-  <div style="position:fixed;bottom:0;left:0;right:0;z-index:9998;background:linear-gradient(135deg,#111827,#1f2937);border-top:1px solid rgba(108,99,255,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-shadow:0 -4px 20px rgba(0,0,0,0.3);"><span style="color:rgba(255,255,255,0.7);font-size:13px;letter-spacing:0.02em;">Like what you see?</span><a href="/checkout" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.02em;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a></div></body>
+  <div class="bottom-cta" style="position:fixed;bottom:0;left:0;right:0;z-index:9998;background:linear-gradient(135deg,#111827,#1f2937);border-top:1px solid rgba(108,99,255,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-shadow:0 -4px 20px rgba(0,0,0,0.3);"><span style="color:rgba(255,255,255,0.7);font-size:13px;letter-spacing:0.02em;">Like what you see?</span><a href="/checkout" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.02em;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a></div></body>
   </html>

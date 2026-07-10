@@ -202,7 +202,7 @@ export default function CheckoutPage() {
                 <div className={s.investLabel}>Single-system build</div>
               </div>
               <div className={s.investRangeItem}>
-                <div className={s.investValue}>$10,000+</div>
+                <div className={s.investValue}>$20,000+</div>
                 <div className={s.investLabel}>Full operating system</div>
               </div>
             </div>
@@ -244,7 +244,7 @@ export default function CheckoutPage() {
 
       {/* ── Footer ── */}
       <footer className={s.footer}>
-        © 2026 yourhumanedge with AI. All rights reserved.
+        © 2026  Built for you. All rights reserved.
       </footer>
     </div>
   );

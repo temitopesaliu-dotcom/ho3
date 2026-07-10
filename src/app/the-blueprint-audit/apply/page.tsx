@@ -36,6 +36,7 @@ export default function ApplyPage() {
   const router = useRouter();
   const [current, setCurrent] = useState(1);
   const [submitting, setSubmitting] = useState(false);
+  const [redirecting, setRedirecting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [data, setData] = useState<FormData>({
     firstName: "",
@@ -155,6 +156,7 @@ export default function ApplyPage() {
         body: JSON.stringify(data),
       });
       if (res.ok) {
+        setRedirecting(true);
         window.open('https://buy.stripe.com/7sYfZgah48Nh3Nb74N6J204', '_blank')
       } else {
         setErrors({ submit: "Submission failed. Please try again." });
@@ -530,7 +532,7 @@ export default function ApplyPage() {
               <h2 className="form-step-title">Investment readiness.</h2>
               <p className="form-step-subtitle">
                 We ask directly because we want to protect your time. If the
-                investment range isn&apos;t right for your situation, we&apos;ll
+                investment range isn't right for your situation, we'll
                 point you toward better options.
               </p>
 
@@ -722,9 +724,9 @@ export default function ApplyPage() {
                 <button
                   type="submit"
                   className="btn btn-primary btn-lg btn-arrow"
-                  disabled={submitting}
+                  disabled={submitting || redirecting}
                 >
-                  {submitting ? "Submitting…" : "Submit Application"}
+                  {redirecting ? "Redirecting…" : submitting ? "Submitting…" : "Submit Application"}
                 </button>
               </div>
             </div>

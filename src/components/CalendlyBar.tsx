@@ -12,7 +12,7 @@ export default function CalendlyBar({ calendlyUrl = "https://calendly.com" }: Ca
         <p>Everything here is a demo. Your version gets built around your exact workflow, audience, and goals.</p>
       </div>
       <a
-        href={calendlyUrl}
+        href="/checkout"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.btn}

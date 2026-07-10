@@ -12,7 +12,7 @@
   --slate: #4A5568; --light-bg: #F7F3EF;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Georgia',serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
+body{font-family:'Georgia',serif;background:var(--cream);color:var(--dark);overflow-x:hidden;padding-bottom:70px}
 /* ── NAV ── */
 nav{position:fixed;top:36px;left:0;right:0;z-index:100;background:rgba(42,26,32,0.96);backdrop-filter:blur(12px);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
 .nav-brand{display:flex;align-items:center;gap:10px}
@@ -177,11 +177,9 @@ nav{position:fixed;top:36px;left:0;right:0;z-index:100;background:rgba(42,26,32,
 .kpi-delta.down{color:#C0392B}
 /* Dashboard grid */
 .db-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;padding:0 24px 32px;max-width:1100px;margin:0 auto}
-@media(max-width:900px){.db-grid{grid-template-columns:1fr}}
 .db-card{background:white;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
 .db-card.wide{grid-column:span 2}
 .db-card.full{grid-column:span 3}
-@media(max-width:900px){.db-card.wide,.db-card.full{grid-column:span 1}}
 .db-card-title{font-size:12px;font-family:Arial,sans-serif;font-weight:600;color:var(--rose);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
 .db-card-title .refresh{font-size:11px;color:var(--accent);cursor:pointer;letter-spacing:0;text-transform:none;font-weight:normal}
 /* Content Ideas */
@@ -264,10 +262,20 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
 .time-text strong{color:#F5C5A8;opacity:1}
 
 /* ── TABS / SUBNAVS ── */
-.subnav{background:white;border-bottom:1px solid var(--sand);padding:0 24px;display:flex;gap:0;overflow-x:auto}
+.subnav{background:white;border-bottom:1px solid var(--sand);padding:0 24px;display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.subnav::-webkit-scrollbar{display:none}
 .subnav-item{padding:14px 20px;font-size:13px;font-family:Arial,sans-serif;color:var(--mid);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s}
 .subnav-item:hover{color:var(--berry)}
 .subnav-item.active{color:var(--berry);border-bottom-color:var(--berry);font-weight:600}
+/* ── HAMBURGER MENU ── */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:110}
+.mobile-nav{display:none}
+.hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0;transition:all .3s;border-radius:1px}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(42,26,32,.7);z-index:104}
+.mobile-menu-overlay.active{display:block}
 
 /* ── MODALS / OVERLAYS ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(42,26,32,.7);z-index:200;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
@@ -289,8 +297,124 @@ section.alt-bg{background:white}
 @keyframes countUp{from{opacity:0}to{opacity:1}}
 
 /* Notification toast */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--dark);color:white;padding:14px 20px;border-radius:12px;font-size:13px;font-family:Arial,sans-serif;z-index:300;transform:translateY(100px);opacity:0;transition:all .3s;border-left:4px solid var(--accent)}
+.toast{position:fixed;bottom:70px;right:16px;background:var(--dark);color:white;padding:14px 20px;border-radius:12px;font-size:13px;font-family:Arial,sans-serif;z-index:300;transform:translateY(100px);opacity:0;transition:all .3s;border-left:4px solid var(--accent);max-width:calc(100vw - 32px)}
 .toast.show{transform:translateY(0);opacity:1}
+/* ── RESPONSIVE — TABLET ── */
+@media(max-width:900px){
+  .db-grid{grid-template-columns:1fr}
+  .db-card.wide,.db-card.full{grid-column:span 1}
+  nav{padding:0 16px}
+  .nav-name{display:none}
+  .nav-links{gap:2px}
+  .nav-link{padding:6px 10px;font-size:11px}
+  .section{padding:40px 20px}
+  .programs-hero{padding:60px 20px 40px}
+  .community-hero{padding:60px 20px 40px}
+  .hero{padding:60px 20px 40px}
+  .hero-sub{font-size:15px}
+  .calc-sliders{padding:24px}
+  .calc-section{padding:60px 20px}
+  .proof-strip{gap:24px;padding:16px 20px}
+  .proof-num{font-size:22px}
+}
+/* ── RESPONSIVE — MOBILE ── */
+@media(max-width:600px){
+  /* Nav becomes compact with hamburger */
+  nav{height:50px;padding:0 12px}
+  .nav-links{display:none}
+  .creator-toggle{display:none}
+  .hamburger{display:block}
+  /* Mobile nav dropdown */
+  .mobile-nav{display:none;position:fixed;top:86px;left:0;right:0;background:rgba(42,26,32,.98);backdrop-filter:blur(12px);z-index:105;padding:16px;flex-direction:column;gap:4px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .mobile-nav.open{display:flex}
+  .mobile-nav .nav-link{padding:12px 16px;border-radius:10px;font-size:14px}
+  .mobile-nav .nav-link.active{background:var(--berry)}
+  .mobile-nav .creator-toggle{width:100%;margin-top:8px;padding:12px;text-align:center}
+  /* Back bar */
+  #back-bar{padding:.45rem 1rem}
+  #back-bar a{font-size:.5rem}
+  #back-bar span{font-size:.5rem;display:none}
+  /* Hero */
+  .hero{min-height:auto;padding:60px 16px 40px}
+  .hero-eyebrow{font-size:9px;padding:5px 14px}
+  .hero-sub{font-size:14px;margin-bottom:32px}
+  .audience-grid{gap:8px}
+  .audience-card{padding:10px 16px;font-size:12px}
+  .btn-start{padding:14px 32px;font-size:14px}
+  /* Proof strip */
+  .proof-strip{gap:16px;padding:14px 16px}
+  .proof-num{font-size:18px}
+  .proof-text{font-size:8px}
+  /* Sections */
+  .section{padding:32px 16px}
+  .section-title{font-size:22px}
+  .section-sub{font-size:13px;margin-bottom:28px}
+  /* Track cards */
+  .tracks-grid{grid-template-columns:1fr}
+  .track-header{padding:20px}
+  .track-title{font-size:18px}
+  .track-body{padding:18px}
+  /* Tiers */
+  .tiers-row{grid-template-columns:1fr}
+  .tier.featured{grid-column:span 1}
+  .tier{padding:20px}
+  .tier-price{font-size:28px}
+  /* Quiz */
+  .quiz-wrap{padding:20px 12px}
+  .quiz-header{padding:24px 16px}
+  .quiz-body{padding:24px 16px}
+  .q-text{font-size:17px}
+  .q-option{padding:12px 14px;font-size:13px}
+  .quiz-result{padding:28px 16px}
+  .result-title{font-size:22px}
+  /* Community */
+  .channels-grid{grid-template-columns:1fr}
+  .channel-card{padding:20px}
+  .report-preview{padding:20px}
+  .report-header{flex-wrap:wrap}
+  .report-date{margin-left:0;width:100%}
+  /* Calculator */
+  .calc-section{padding:40px 16px}
+  .calc-sliders{padding:20px 16px}
+  .calc-results{grid-template-columns:1fr}
+  .calc-result-val{font-size:28px}
+  .time-saved-bar{flex-direction:column;text-align:center;gap:10px}
+  /* Programs hero */
+  .programs-hero{padding:48px 16px 32px}
+  /* Community hero */
+  .community-hero{padding:48px 16px 32px}
+  /* Dashboard */
+  .db-top{padding:24px 16px}
+  .db-name{font-size:22px}
+  .kpi-row{grid-template-columns:1fr 1fr;padding:16px;gap:10px}
+  .kpi{padding:14px}
+  .kpi-val{font-size:22px}
+  .db-grid{padding:0 16px 24px;gap:14px}
+  .db-card{padding:18px}
+  .pipeline-row{flex-wrap:wrap;gap:4px}
+  .intake-item{flex-wrap:wrap;gap:8px}
+  .intake-info{min-width:0}
+  .intake-detail{font-size:10px}
+  .schedule-item{flex-wrap:wrap;gap:6px}
+  .schedule-time{width:auto}
+  .bar-chart{height:60px}
+  .content-idea{padding:10px 12px}
+  .idea-hook{font-size:12px}
+  /* Bottom CTA bar */
+  .bottom-cta{padding:10px 12px!important;gap:8px!important}
+  .bottom-cta span{font-size:11px!important}
+  .bottom-cta a{font-size:11px!important;padding:8px 16px!important}
+  /* CTA blocks */
+  .cta-block{padding:32px 16px!important}
+  .cta-block a{width:100%;justify-content:center;text-align:center}
+  /* Subnav */
+  .subnav{padding:0 12px}
+  .subnav-item{padding:12px 14px;font-size:12px}
+  /* Modal */
+  #email-gate-modal>div{padding:20px 14px!important;margin:8px!important}
+  #email-gate-form>div:first-child{flex-direction:column!important;gap:8px!important}
+  #email-gate-form>div:first-child>input{width:100%!important}
+}
 </style>
 </head>
 <body>
@@ -314,7 +438,21 @@ section.alt-bg{background:white}
     <div class="nav-link" onclick="showView('calculator')">Revenue</div>
   </div>
   <button class="creator-toggle" onclick="showView('dashboard')">✦ Creator View</button>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobile-overlay" onclick="closeMobileNav()"></div>
+<!-- Mobile Nav Dropdown -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="nav-link active" onclick="showView('landing');closeMobileNav()">Home</div>
+  <div class="nav-link" onclick="showView('quiz');closeMobileNav()">Free Quiz</div>
+  <div class="nav-link" onclick="showView('programs');closeMobileNav()">Programs</div>
+  <div class="nav-link" onclick="showView('community');closeMobileNav()">Community</div>
+  <div class="nav-link" onclick="showView('calculator');closeMobileNav()">Revenue</div>
+  <button class="creator-toggle" onclick="showView('dashboard');closeMobileNav()">✦ Creator View</button>
+</div>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
@@ -1025,6 +1163,25 @@ function showView(id) {
     document.querySelectorAll('.nav-link').forEach(l => { if(l.textContent===map[id]) l.classList.add('active'); });
   }
   window.scrollTo(0,0);
+  closeMobileNav();
+}
+
+// ── MOBILE NAV ──
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const overlay = document.getElementById('mobile-overlay');
+  const hamburger = document.getElementById('hamburger-btn');
+  nav.classList.toggle('open');
+  overlay.classList.toggle('active');
+  hamburger.classList.toggle('open');
+}
+function closeMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const overlay = document.getElementById('mobile-overlay');
+  const hamburger = document.getElementById('hamburger-btn');
+  if(nav) nav.classList.remove('open');
+  if(overlay) overlay.classList.remove('active');
+  if(hamburger) hamburger.classList.remove('open');
 }
 
 // ── AUDIENCE PICKER ──
@@ -1246,5 +1403,5 @@ updateCalc();
       </form>
     </div>
   </div>
-  <div style="position:fixed;bottom:0;left:0;right:0;z-index:9998;background:linear-gradient(135deg,#111827,#1f2937);border-top:1px solid rgba(108,99,255,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-shadow:0 -4px 20px rgba(0,0,0,0.3);"><span style="color:rgba(255,255,255,0.7);font-size:13px;letter-spacing:0.02em;">Like what you see?</span><a href="/checkout" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.02em;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a></div></body>
+  <div class="bottom-cta" style="position:fixed;bottom:0;left:0;right:0;z-index:9998;background:linear-gradient(135deg,#111827,#1f2937);border-top:1px solid rgba(108,99,255,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-shadow:0 -4px 20px rgba(0,0,0,0.3);"><span style="color:rgba(255,255,255,0.7);font-size:13px;letter-spacing:0.02em;">Like what you see?</span><a href="/checkout" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:linear-gradient(135deg,#6c63ff,#4F46E5);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:0.02em;transition:all 0.2s;box-shadow:0 4px 14px rgba(108,99,255,0.4);">Get this built for your business, starting from $500 →</a></div></body>
   </html>
