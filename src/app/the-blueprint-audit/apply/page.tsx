@@ -532,7 +532,7 @@ export default function ApplyPage() {
               <h2 className="form-step-title">Investment readiness.</h2>
               <p className="form-step-subtitle">
                 We ask directly because we want to protect your time. If the
-                investment range isn't right for your situation, we'll
+                investment range isn&apos;t right for your situation, we&apos;ll
                 point you toward better options.
               </p>
 
