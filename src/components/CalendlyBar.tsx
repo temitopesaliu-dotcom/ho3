@@ -4,7 +4,7 @@ interface CalendlyBarProps {
   calendlyUrl?: string;
 }
 
-export default function CalendlyBar({ calendlyUrl = "https://calendly.com" }: CalendlyBarProps) {
+export default function CalendlyBar() {
   return (
     <div className={styles.band}>
       <div className={styles.text}>
