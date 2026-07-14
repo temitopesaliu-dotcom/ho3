@@ -37,7 +37,7 @@ export const CATEGORIES: Category[] = [
     products: [
       {
         id: "coaches-01",
-        title: "Client Pipeline Tracker",
+        title: "Content Intelligence System",
         tag: "Sales Coach",
         description:
           "A full CRM-style pipeline to track every prospect from first DM to signed contract. Know your conversion rate at every stage.",
@@ -50,14 +50,6 @@ export const CATEGORIES: Category[] = [
         description:
           "A structured coaching platform for marriage and parenting transformation. Guided frameworks, session notes, and client progress tracking.",
         demo: "/demos/the-marriage-coach.html",
-      },
-      {
-        id: "coaches-03",
-        title: "Session & Goal OS",
-        tag: "Life Coach",
-        description:
-          "A personal operating system for life coaches — track client goals, session history, breakthroughs, and follow-up tasks in one clean view.",
-        demo: "/demos/autoleads_dashboard_page.html",
       },
       {
         id: "coaches-04",
@@ -86,14 +78,6 @@ export const CATEGORIES: Category[] = [
         demo: "/demos/content-intelligence.html",
       },
       {
-        id: "creators-02",
-        title: "Audience Growth OS",
-        tag: "Newsletter",
-        description:
-          "Track subscriber growth, open rates, click-throughs, and revenue from your newsletter — with weekly trend analysis built in.",
-        demo: "/demos/autoleads_dashboard_page.html",
-      },
-      {
         id: "creators-03",
         title: "Course Revenue Tracker",
         tag: "Course Creator",
@@ -112,16 +96,8 @@ export const CATEGORIES: Category[] = [
     filters: ["All", "Consultant", "Freelancer", "Financial Advisor", "Legal", "HR Professional"],
     products: [
       {
-        id: "professionals-01",
-        title: "AutoLeads Dashboard",
-        tag: "Consultant",
-        description:
-          "Track every cold outreach touchpoint — sends, opens, reads, clicks, and replies — broken down by sector. Know exactly who is warm.",
-        demo: "/demos/autoleads_dashboard_page.html",
-      },
-      {
         id: "professionals-02",
-        title: "Client Reporting Suite",
+        title: "Content Intelligence System",
         tag: "Freelancer",
         description:
           "Auto-generate clean weekly or monthly client reports from your work data. Reduce admin, look more professional, keep clients longer.",
@@ -129,19 +105,11 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "professionals-03",
-        title: "Money Bestie OS",
+        title: "Finance OS",
         tag: "Financial Advisor",
         description:
           "A personal finance operating system to share with clients — budgeting, goal-setting, net worth tracking, and spending clarity.",
         demo: "/demos/financial_coach.html",
-      },
-      {
-        id: "professionals-04",
-        title: "Personal Brand Dashboard",
-        tag: "Consultant",
-        description:
-          "Track your content reach, inbound leads, speaking requests, and media mentions in one dashboard — your brand, quantified.",
-        demo: "/demos/the-marriage-coach.html",
       },
     ],
   },
@@ -154,16 +122,8 @@ export const CATEGORIES: Category[] = [
     filters: ["All", "Startup", "SME", "Agency", "E-commerce", "SaaS"],
     products: [
       {
-        id: "companies-01",
-        title: "AutoLeads Dashboard",
-        tag: "Startup",
-        description:
-          "A full cold outreach analytics system — track sends, opens, reads, and replies by sector and team member. Scale what's working.",
-        demo: "/demos/autoleads_dashboard_page.html",
-      },
-      {
         id: "companies-02",
-        title: "Content Intelligence Platform",
+        title: "Content Intelligence System",
         tag: "Agency",
         description:
           "Run content audits and publish performance reports for multiple clients in one workspace — with channel-by-channel analytics.",
@@ -176,14 +136,6 @@ export const CATEGORIES: Category[] = [
         description:
           "Company-wide budget tracking, expense management, and financial forecasting — built for small and mid-size teams.",
         demo: "/demos/financial_coach.html",
-      },
-      {
-        id: "companies-04",
-        title: "Employee Coaching Platform",
-        tag: "SME",
-        description:
-          "Structured 1:1 frameworks, goal tracking, and performance coaching tools for managers building high-performing teams.",
-        demo: "/demos/the-marriage-coach.html",
       },
     ],
   },
