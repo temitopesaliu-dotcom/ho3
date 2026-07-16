@@ -925,7 +925,7 @@ export default function AiosLandingPage() {
                 role: "United States",
               },
               {
-                text: "My onboarding used to take me 3 hours per new client. Scheduling, contracts, emails, intake, kickoff. Now it's fully automated. I join the kickoff call and everything is already done. Game-changing for a solo consultant.",
+                text: "My onboarding used to take me 2 hours per new client. Scheduling, contracts, emails, intake, kickoff. Now it's fully automated. I join the kickoff call and everything is already done. Game-changing for a solo consultant.",
                 name: "James O.",
                 role: "Nigeria",
               },

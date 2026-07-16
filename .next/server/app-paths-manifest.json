@@ -1,4 +1,5 @@
 {
-  "/products/page": "app/products/page.js",
-  "/category/[slug]/page": "app/category/[slug]/page.js"
+  "/page": "app/page.js",
+  "/the-blueprint-audit/page": "app/the-blueprint-audit/page.js",
+  "/the-blueprint-audit/apply/page": "app/the-blueprint-audit/apply/page.js"
 }

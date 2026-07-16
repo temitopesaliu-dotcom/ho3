@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
       firstName: data.firstName || "",
       lastName: data.lastName || "",
       email: data.email || "",
+      phone: data.phone || "",
       businessName: data.businessName || "",
       website: data.website || "",
       businessType: data.businessType || "",

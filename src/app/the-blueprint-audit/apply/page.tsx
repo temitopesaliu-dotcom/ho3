@@ -9,6 +9,7 @@ interface FormData {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   businessName: string;
   website: string;
   businessType: string;
@@ -42,6 +43,7 @@ export default function ApplyPage() {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     businessName: "",
     website: "",
     businessType: "",
@@ -99,11 +101,24 @@ export default function ApplyPage() {
         newErrors[field] = `Enter a valid email address.`;
       }
     };
+    const PHONE_RE = /^\+[\d\s\-\(\)]{7,20}$/;
+    const reqPhone = (field: string, label: string) => {
+      const v =
+        typeof data[field as keyof FormData] === "string"
+          ? (data[field as keyof FormData] as string).trim()
+          : "";
+      if (!v) {
+        newErrors[field] = `${label} is required.`;
+      } else if (!PHONE_RE.test(v)) {
+        newErrors[field] = `Enter a valid phone number with country code (e.g. +1 555 123 4567).`;
+      }
+    };
 
     if (step === 1) {
       req("firstName", "First name");
       req("lastName", "Last name");
       reqEmail("email", "Email");
+      reqPhone("phone", "Phone number");
       req("businessName", "Business name");
     } else if (step === 2) {
       req("businessType", "Business type");
@@ -252,8 +267,23 @@ export default function ApplyPage() {
                     value={data.email}
                     onChange={(e) => update("email", e.target.value)}
                     autoComplete="email"
+                  />                    <FieldError errors={errors} field="email" />
+                  </div>
+
+                <div className="form-field">
+                  <label className="form-label" htmlFor="phone">
+                    Phone number <span className="form-required">*</span>
+                  </label>
+                  <input
+                    className="form-input"
+                    type="tel"
+                    id="phone"
+                    placeholder="+1 555 123 4567"
+                    value={data.phone}
+                    onChange={(e) => update("phone", e.target.value)}
+                    autoComplete="tel"
                   />
-                  <FieldError errors={errors} field="email" />
+                  <FieldError errors={errors} field="phone" />
                 </div>
 
                 <div className="form-field">
@@ -705,6 +735,10 @@ export default function ApplyPage() {
                     </span>
                   </label>
                 </div>
+              </div>
+
+              <div className="form-cost-notice">
+                <strong>To book a call to discuss your business, it costs $500.</strong>
               </div>
 
               {errors.submit && (
