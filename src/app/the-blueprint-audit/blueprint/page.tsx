@@ -25,7 +25,7 @@ export default function BlueprintPage() {
             <em>Blueprint Session</em>
           </h1>
           <p className="hero-subtitle fade-up delay-2">
-            A 60-minute consulting engagement where we map your business,
+            A 90-minute consulting engagement where we map your business,
             identify every AI opportunity, and design the architecture of your
             operating system. Not a sales call. A deliverable.
           </p>
@@ -38,7 +38,8 @@ export default function BlueprintPage() {
             </a>
           </div>
           <p className="hero-note fade-up delay-3">
-            $500 · Credited in full toward implementation
+            $1,000 · Credited in full toward implementation · Reviewed within 48
+            hours
           </p>
         </div>
       </section>
@@ -68,7 +69,7 @@ export default function BlueprintPage() {
               </p>
               <p className="body-md">
                 That document has value whether or not you proceed with
-                implementation. If you do proceed, the $500 is credited in full
+                implementation. If you do proceed, the $1,000 is credited in full
                 toward your project. It is not a deposit. It is not a fee. It is
                 consulting work that you keep.
               </p>
@@ -250,18 +251,18 @@ export default function BlueprintPage() {
             <div className="fade-up">
               <p className="label mb-3">The Investment</p>
               <h2 className="heading-1" id="investment-heading">
-                $500 for a consulting session with a written deliverable.
+                $1,000 for a consulting session with a written deliverable.
               </h2>
               <p className="body-lg mt-4 mb-5">
                 Most businesses spend weeks — and tens of thousands of dollars —
                 building AI tools that don&apos;t connect or deliver results. The
-                Blueprint costs $500 and gives you a complete, written
+                Blueprint costs $1,000 and gives you a complete, written
                 architecture for your AI OS before a single tool is built.
               </p>
 
               {[
                 {
-                  title: "The full $500 is credited toward implementation",
+                  title: "The full $1,000 is credited toward implementation",
                   desc: "If you proceed with implementation within 30 days, the Blueprint fee is credited in full. No partial credit. No conditions. 100% applied.",
                 },
                 {
@@ -270,7 +271,7 @@ export default function BlueprintPage() {
                 },
                 {
                   title: "Not everyone is accepted",
-                  desc: "Applications are reviewed first. If the Blueprint is not the right fit for where your business is, we tell you clearly and point you toward better options. This protects your $500 and your time.",
+                  desc: "Applications are reviewed first. If the Blueprint is not the right fit for where your business is, we tell you clearly and point you toward better options. This protects your $1,000 and your time.",
                 },
               ].map((point, i) => (
                 <div className={`investment-point ${i < 2 ? "mb-4" : ""}`} key={i}>
@@ -345,7 +346,9 @@ export default function BlueprintPage() {
                   marginTop: "var(--space-3)",
                 }}
               >
+                Applications reviewed within 48 hours.
                 <br />
+                Not all applications are accepted.
               </p>
             </div>
           </div>
@@ -369,7 +372,7 @@ export default function BlueprintPage() {
                   fontStyle: "italic",
                 }}
               >
-                The Blueprint alone was worth the $500. I got clarity on what to
+                The Blueprint alone was worth the $1,000. I got clarity on what to
                 build and in what order. We&apos;d been spinning our wheels with
                 tools for 18 months. In 90 minutes we had a clear architecture.
                 That decision alone saved us months.
@@ -411,7 +414,7 @@ export default function BlueprintPage() {
             Apply for Your Blueprint
           </Link>
           <p className="final-cta-note">
-            $500 · Credited in full if you proceed · Not all applications
+            $1,000 · Credited in full if you proceed · Not all applications
             accepted
           </p>
         </div>

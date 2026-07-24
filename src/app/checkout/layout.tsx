@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Blueprint Session — $500 Deposit | Built for You",
+  title: "Blueprint Session — $1,000 Deposit | Built for You",
   description:
-    "Secure your AI Operating System Blueprint session. $500 credited in full toward your implementation project.",
+    "Secure your AI Operating System Blueprint session. $1,000 credited in full toward your implementation project.",
 };
 
 export default function CheckoutLayout({

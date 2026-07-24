@@ -13,7 +13,7 @@ const LogoMark = () => (
 
 /**
  * Landing: Blueprint link, Apply button, hamburger, mobile menu, sticky CTA "Ready to stop..."
- * Blueprint: How It Works + FAQ links, Apply button, hamburger, mobile menu, sticky CTA "AI OS Blueprint — $500"
+ * Blueprint: How It Works + FAQ links, Apply button, hamburger, mobile menu, sticky CTA "AI OS Blueprint — $1,000"
  * Apply: About Blueprint link only
  * Confirmation/NotAFit: Logo only
  */
@@ -99,7 +99,7 @@ export default function AiosNav({
       {/* Sticky CTA — blueprint page */}
       {variant === "blueprint" && (
         <div className="sticky-cta-bar" role="complementary">
-          <span className="sticky-cta-text">AI Operating System Blueprint — $500</span>
+          <span className="sticky-cta-text">AI Operating System Blueprint — $1,000</span>
           <Link href="/the-blueprint-audit/apply" className="btn btn-primary btn-sm btn-arrow">Apply Now</Link>
         </div>
       )}

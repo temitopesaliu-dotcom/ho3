@@ -172,7 +172,7 @@ export default function ApplyPage() {
       });
       if (res.ok) {
         setRedirecting(true);
-        window.open('https://buy.stripe.com/7sYfZgah48Nh3Nb74N6J204', '_blank')
+        window.open('https://buy.stripe.com/fZueVcdtg7JdgzX2Ox6J206', '_blank')
       } else {
         setErrors({ submit: "Submission failed. Please try again." });
         setSubmitting(false);
@@ -738,7 +738,7 @@ export default function ApplyPage() {
               </div>
 
               <div className="form-cost-notice">
-                <strong>To book a call to discuss your business, it costs $500.</strong>
+                <strong>To book a call to discuss your business, it costs $1,000.</strong>
               </div>
 
               {errors.submit && (

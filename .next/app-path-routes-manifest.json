@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/demo-gate/route": "/api/demo-gate",
+  "/api/the-blueprint-audit/submit/route": "/api/the-blueprint-audit/submit",
+  "/category/[slug]/page": "/category/[slug]",
+  "/page": "/",
+  "/products/page": "/products",
+  "/checkout/page": "/checkout",
+  "/the-blueprint-audit/blueprint/page": "/the-blueprint-audit/blueprint",
+  "/the-blueprint-audit/page": "/the-blueprint-audit",
+  "/the-blueprint-audit/apply/page": "/the-blueprint-audit/apply",
+  "/the-blueprint-audit/apply/not-a-fit/page": "/the-blueprint-audit/apply/not-a-fit"
+}

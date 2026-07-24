@@ -1,7 +1,7 @@
 import Nav from "../../components/Nav";
 import s from "./checkout.module.css";
 
-const STRIPE = "https://buy.stripe.com/7sY9AS4WKfbFbfDfBj6J205";
+const STRIPE = "https://buy.stripe.com/fZueVcdtg7JdgzX2Ox6J206";
 
 export default function CheckoutPage() {
   return (
@@ -23,7 +23,7 @@ export default function CheckoutPage() {
           Get This For Your Business →
         </a>
         <div className={s.heroNote}>
-          $500 audit call · credited in full toward your build
+          $1,000 audit call · credited in full toward your build
         </div>
       </section>
 
@@ -39,7 +39,7 @@ export default function CheckoutPage() {
               <div className={s.stepNum}>1</div>
               <h3>Pay the audit fee</h3>
               <p>
-                $500 locks your session and gets your business properly looked at
+                $1,000 locks your session and gets your business properly looked at
                 — not a sales call in disguise.
               </p>
             </div>
@@ -156,18 +156,18 @@ export default function CheckoutPage() {
               business.
             </h2>
             <p>
-              $500 gets your business properly audited — we map exactly where AI
+              $1,000 gets your business properly audited — we map exactly where AI
               fits, and you get a written plan either way. Not a pitch. A
               deliverable you keep.
             </p>
             <div className={s.creditBox}>
               <strong>Credited in full.</strong> If you move forward with
-              implementation within 30 days, the full $500 comes off your build
+              implementation within 30 days, the full $1,000 comes off your build
               cost. Effectively free, if you proceed.
             </div>
           </div>
           <div className={s.priceCard}>
-            <div className={s.priceAmount}>$500</div>
+            <div className={s.priceAmount}>$1,000</div>
             <div className={s.priceSub}>One-time · credited toward your build</div>
             <ul className={s.priceList}>
               <li>Full business audit</li>
@@ -230,7 +230,7 @@ export default function CheckoutPage() {
           <h2>
             Your business, mapped. Your next 90 days, clear.
           </h2>
-          <p>$500 · credited in full if you proceed</p>
+          <p>$1,000 · credited in full if you proceed</p>
           <a
             href={STRIPE}
             className={s.ctaBtn}
