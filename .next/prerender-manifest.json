@@ -1,7 +1,8 @@
 {
   "version": 4,
   "routes": {
-    "/": {
+    "/_not-found": {
+      "initialStatus": 404,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -14,8 +15,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
+      "srcRoute": "/_not-found",
+      "dataRoute": "/_not-found.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -49,6 +50,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/built-for-you": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/built-for-you",
+      "dataRoute": "/built-for-you.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/the-blueprint-audit/apply": {
       "experimentalBypassFor": [
         {
@@ -73,8 +98,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/_not-found": {
-      "initialStatus": 404,
+    "/the-blueprint-audit/apply/not-a-fit": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -87,8 +111,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/_not-found",
-      "dataRoute": "/_not-found.rsc",
+      "srcRoute": "/the-blueprint-audit/apply/not-a-fit",
+      "dataRoute": "/the-blueprint-audit/apply/not-a-fit.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -98,7 +122,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/the-blueprint-audit/blueprint": {
+    "/": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -111,8 +135,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/the-blueprint-audit/blueprint",
-      "dataRoute": "/the-blueprint-audit/blueprint.rsc",
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -170,7 +194,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/the-blueprint-audit/apply/not-a-fit": {
+    "/the-blueprint-audit/blueprint": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -183,8 +207,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/the-blueprint-audit/apply/not-a-fit",
-      "dataRoute": "/the-blueprint-audit/apply/not-a-fit.rsc",
+      "srcRoute": "/the-blueprint-audit/blueprint",
+      "dataRoute": "/the-blueprint-audit/blueprint.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -198,8 +222,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "16d3af13b8fa3625c841921501f80120",
-    "previewModeSigningKey": "1583ae42242ccf0718f374c5f85677554e13e5f83f82e26fbb70c00826a0ddef",
-    "previewModeEncryptionKey": "ec6af935fdb623d95c9c1b2d941ad805862554f365dc55ea68f75057068c47c7"
+    "previewModeId": "3044daa19213c1652adcbec434f7ee80",
+    "previewModeSigningKey": "d9e9d04a38f234ab0196abfc825a9b2c45da262735860439c727ef8fd4dd06ea",
+    "previewModeEncryptionKey": "427d96bfeda3bc2edc647361e331f8a15a72286679f1234bfab308a3daa96e81"
   }
 }

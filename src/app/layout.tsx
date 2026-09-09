@@ -3,8 +3,9 @@ import "../styles/globals.css";
 import FacebookPixel from "../components/FacebookPixel";
 
 export const metadata: Metadata = {
-  title: "Built for You",
-  description: "AI — Done for You. Digital products for businesses, coaches, creators, consultants and founders.",
+  title: "Hello Glide — AI Systems, Built for You",
+  description:
+    "AI — Done for You. Digital products and custom AI Operating Systems for businesses, coaches, creators, consultants and founders.",
 };
 
 export default function RootLayout({

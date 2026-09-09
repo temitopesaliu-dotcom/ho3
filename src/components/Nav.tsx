@@ -9,7 +9,7 @@ interface NavProps {
 export default function Nav({ backLabel, backTo }: NavProps) {
   return (
     <nav className={styles.nav}>
-      <Link href="/" className={styles.logo}>Built for You</Link>
+      <Link href="/built-for-you" className={styles.logo}>Built for You</Link>
       {backTo && backLabel && (
         <Link href={backTo} className={styles.back}>
           &larr; {backLabel}

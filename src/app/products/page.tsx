@@ -41,7 +41,7 @@ export default function ProductsPage() {
 
       {/* Nav */}
       <nav className={styles.nav}>
-        <Link href="/" className={styles.navLogo}>Built for You</Link>
+        <Link href="/built-for-you" className={styles.navLogo}>Built for You</Link>
       </nav>
 
       {/* Page Header */}

@@ -833,7 +833,7 @@ export default function AiosLandingPage() {
               <p className="label mb-4">AI Operating System Blueprint</p>
               <div style={{ marginBottom: "var(--space-3)" }}>
                 <span className="price-currency">$</span>
-                <span className="price-amount">500</span>
+                <span className="price-amount">1,000</span>
               </div>
               <p className="body-sm mb-4">
                 One-time. Credited 100% toward implementation if you proceed

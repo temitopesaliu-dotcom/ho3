@@ -42,6 +42,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/built-for-you",
+      "regex": "^/built\\-for\\-you(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/built\\-for\\-you(?:/)?$"
+    },
+    {
       "page": "/checkout",
       "regex": "^/checkout(?:/)?$",
       "routeKeys": {},
